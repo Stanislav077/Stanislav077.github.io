@@ -300,7 +300,19 @@ class ControllerCatalogAbouthome extends Controller {
 			$data['error_description'] = array();
 		}
 
+        $url = '';
 
+        if (isset($this->request->get['sort'])) {
+            $url .= '&sort=' . $this->request->get['sort'];
+        }
+
+        if (isset($this->request->get['order'])) {
+            $url .= '&order=' . $this->request->get['order'];
+        }
+
+        if (isset($this->request->get['page'])) {
+            $url .= '&page=' . $this->request->get['page'];
+        }
 
 		$data['breadcrumbs'] = array();
 
