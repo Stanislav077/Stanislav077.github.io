@@ -1,0 +1,40 @@
+2018-03-22 14:14:36 - PHP Warning:  imagecolorallocatealpha() expects exactly 5 parameters, 1 given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 110
+2018-03-22 14:15:02 - PHP Warning:  imagecolorallocatealpha() expects exactly 5 parameters, 1 given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 110
+2018-03-22 14:15:52 - PHP Warning:  imagecolorallocatealpha() expects exactly 5 parameters, 4 given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 110
+2018-03-22 14:16:34 - PHP Warning:  imagecolortransparent() expects parameter 2 to be integer, string given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 112
+2018-03-22 14:16:34 - PHP Warning:  imagefilledrectangle() expects parameter 6 to be integer, string given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 117
+2018-03-22 14:17:43 - PHP Warning:  imagecolortransparent() expects parameter 2 to be integer, resource given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 112
+2018-03-22 14:17:43 - PHP Warning:  imagefilledrectangle() expects parameter 6 to be integer, resource given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 117
+2018-03-22 14:47:06 - PHP Notice:  Undefined index: description in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\design\banner.php on line 384
+2018-03-22 14:47:06 - PHP Notice:  Undefined index: description in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\design\banner.php on line 384
+2018-03-22 14:47:06 - PHP Notice:  Undefined index: description in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\design\banner.php on line 384
+2018-03-22 15:09:11 - PHP Notice:  Undefined index: description in C:\OSPanel\domains\aquadesignpro.coms\admin\model\design\banner.php on line 34
+2018-03-22 15:09:11 - PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\OSPanel\domains\aquadesignpro.coms\admin\controller\startup\error.php:34) in C:\OSPanel\domains\aquadesignpro.coms\system\library\response.php on line 12
+2018-03-22 17:47:19 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\about_home.php on line 178
+2018-03-22 17:47:19 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\about_home.php on line 180
+2018-03-22 17:47:19 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\about_home.php on line 181
+2018-03-22 17:48:44 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 55
+2018-03-22 17:48:44 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 58
+2018-03-22 17:48:44 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 61
+2018-03-22 17:50:13 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 53
+2018-03-22 17:50:13 - PHP Notice:  Undefined index: information_id in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 56
+2018-03-22 17:50:13 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 59
+2018-03-22 17:52:06 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 58
+2018-03-22 17:54:01 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 53
+2018-03-22 17:55:08 - PHP Notice:  Undefined index: sort_order in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 52
+2018-03-22 18:03:04 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:03:11 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:14:56 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:14:56 - PHP Notice:  Undefined variable: pagination in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 66
+2018-03-22 18:14:56 - PHP Notice:  Undefined variable: results in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 67
+2018-03-22 18:16:03 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:19:08 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:31:25 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:33:31 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:38:04 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:38:14 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:38:23 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:38:42 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:39:17 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-22 18:40:33 - PHP Notice:  Undefined index: title in C:\OSPanel\domains\aquadesignpro.coms\admin\model\catalog\abouthome.php on line 34
+2018-03-22 18:40:33 - PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\OSPanel\domains\aquadesignpro.coms\admin\controller\startup\error.php:34) in C:\OSPanel\domains\aquadesignpro.coms\system\library\response.php on line 12
