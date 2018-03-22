@@ -300,31 +300,7 @@ class ControllerCatalogAbouthome extends Controller {
 			$data['error_description'] = array();
 		}
 
-		if (isset($this->error['meta_title'])) {
-			$data['error_meta_title'] = $this->error['meta_title'];
-		} else {
-			$data['error_meta_title'] = array();
-		}
 
-		if (isset($this->error['keyword'])) {
-			$data['error_keyword'] = $this->error['keyword'];
-		} else {
-			$data['error_keyword'] = '';
-		}
-
-		$url = '';
-
-		if (isset($this->request->get['sort'])) {
-			$url .= '&sort=' . $this->request->get['sort'];
-		}
-
-		if (isset($this->request->get['order'])) {
-			$url .= '&order=' . $this->request->get['order'];
-		}
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
 
 		$data['breadcrumbs'] = array();
 
@@ -352,29 +328,9 @@ class ControllerCatalogAbouthome extends Controller {
 
 		$data['token'] = $this->session->data['token'];
 
-		$this->load->model('localisation/language');
 
-		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-		if (isset($this->request->post['information_description'])) {
-			$data['information_description'] = $this->request->post['information_description'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_description'] = $this->model_catalog_information->getInformationDescriptions($this->request->get['information_id']);
-		} else {
-			$data['information_description'] = array();
-		}
 
-		$this->load->model('setting/store');
-
-		$data['stores'] = $this->model_setting_store->getStores();
-
-		if (isset($this->request->post['information_store'])) {
-			$data['information_store'] = $this->request->post['information_store'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_store'] = $this->model_catalog_information->getInformationStores($this->request->get['information_id']);
-		} else {
-			$data['information_store'] = array(0);
-		}
 
 		if (isset($this->request->post['keyword'])) {
 			$data['keyword'] = $this->request->post['keyword'];
@@ -384,41 +340,27 @@ class ControllerCatalogAbouthome extends Controller {
 			$data['keyword'] = '';
 		}
 
-		if (isset($this->request->post['bottom'])) {
-			$data['bottom'] = $this->request->post['bottom'];
-		} elseif (!empty($information_info)) {
-			$data['bottom'] = $information_info['bottom'];
-		} else {
-			$data['bottom'] = 0;
-		}
 
-		if (isset($this->request->post['status'])) {
-			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($information_info)) {
-			$data['status'] = $information_info['status'];
-		} else {
-			$data['status'] = true;
-		}
 
-		if (isset($this->request->post['sort_order'])) {
-			$data['sort_order'] = $this->request->post['sort_order'];
-		} elseif (!empty($information_info)) {
-			$data['sort_order'] = $information_info['sort_order'];
-		} else {
-			$data['sort_order'] = '';
-		}
+        if (isset($this->request->post['status'])) {
+            $data['status'] = $this->request->post['status'];
+        } elseif (!empty($information_info)) {
+            $data['status'] = $information_info['status'];
+        } else {
+            $data['status'] = true;
+        }
+        if (isset($this->request->post['title'])) {
+            $data['title'] = $this->request->post['title'];
+        } elseif (!empty($information_info)) {
+            $data['title'] = $information_info['title'];
+        } else {
+            $data['title'] = true;
+        }
 
-		if (isset($this->request->post['information_layout'])) {
-			$data['information_layout'] = $this->request->post['information_layout'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_layout'] = $this->model_catalog_information->getInformationLayouts($this->request->get['information_id']);
-		} else {
-			$data['information_layout'] = array();
-		}
 
-		$this->load->model('design/layout');
 
-		$data['layouts'] = $this->model_design_layout->getLayouts();
+
+
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -433,17 +375,9 @@ class ControllerCatalogAbouthome extends Controller {
 		}
 
 		foreach ($this->request->post['information_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['title']) < 3) || (utf8_strlen($value['title']) > 64)) {
-				$this->error['title'][$language_id] = $this->language->get('error_title');
-			}
 
-			if (utf8_strlen($value['description']) < 3) {
-				$this->error['description'][$language_id] = $this->language->get('error_description');
-			}
 
-			if ((utf8_strlen($value['meta_title']) < 3) || (utf8_strlen($value['meta_title']) > 255)) {
-				$this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
-			}
+
 		}
 
 		if (utf8_strlen($this->request->post['keyword']) > 0) {
