@@ -311,11 +311,12 @@ div.required .control-label:before {
 }
 /* footer */
 footer {
-	margin-top: 30px;
+/*	margin-top: 30px;
 	padding-top: 30px;
 	background-color: #303030;
 	border-top: 1px solid #ddd;
 	color: #e2e2e2;
+	*/
 }
 footer hr {
 	border-top: none;
@@ -746,4 +747,55 @@ h2.price {
 .btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
     background-image: none;
     background-color: #df5c39;
+}
+.in_lab
+{
+	color: #989898;
+	font-size: 18px;
+	font-weight: 300;
+	cursor: pointer;
+}
+.main-sale__slider--item--size--item input
+{
+	display:none;
+}
+.main-sale__slider--item--size
+{
+	width: 80% !important;
+}
+.col-quantity
+{
+	width: 25px;
+	text-align: center;
+	border: none;
+}
+.main-sale__slider--item--size--item.active .in_lab {
+	font-weight: 700;
+	color: #34495e;
+}
+
+#myFrameId .copyright
+{
+	display: none;
+}
+.header-main__cont--top #search input[type=button] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(/style/img/icon/lupa.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	border: none;
+	cursor: pointer;
+	outline: 0;
+}
+.header-main__cont--top #search input[type=text] {
+	width: 510px;
+	border: none;
+	border-bottom: 1px solid #989898;
+	outline: 0;
+	padding-bottom: 5px;
+}
+.header-main__cont--top #search {
+	position: relative;
 }

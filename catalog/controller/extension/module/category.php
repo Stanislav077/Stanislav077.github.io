@@ -61,6 +61,7 @@ class ControllerExtensionModuleCategory extends Controller {
 			);
 		}
 
+
 		return $this->load->view('extension/module/category', $data);
 	}
 }

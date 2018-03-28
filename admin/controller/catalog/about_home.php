@@ -343,17 +343,6 @@ class ControllerCatalogAbouthome extends Controller {
 
 
 
-
-		if (isset($this->request->post['keyword'])) {
-			$data['keyword'] = $this->request->post['keyword'];
-		} elseif (!empty($information_info)) {
-			$data['keyword'] = $information_info['keyword'];
-		} else {
-			$data['keyword'] = '';
-		}
-
-
-
         if (isset($this->request->post['status'])) {
             $data['status'] = $this->request->post['status'];
         } elseif (!empty($information_info)) {
@@ -361,6 +350,8 @@ class ControllerCatalogAbouthome extends Controller {
         } else {
             $data['status'] = true;
         }
+
+
         if (isset($this->request->post['title'])) {
             $data['title'] = $this->request->post['title'];
         } elseif (!empty($information_info)) {
@@ -368,10 +359,36 @@ class ControllerCatalogAbouthome extends Controller {
         } else {
             $data['title'] = true;
         }
+        if (isset($this->request->post['link_more'])) {
+            $data['link_more'] = $this->request->post['link_more'];
+        } elseif (!empty($information_info)) {
+            $data['link_more'] = $information_info['link_more'];
+        } else {
+            $data['link_more'] = true;
+        }
 
 
-
-
+        if (isset($this->request->post['link_yuotub'])) {
+            $data['link_yuotub'] = $this->request->post['link_yuotub'];
+        } elseif (!empty($information_info)) {
+            $data['link_yuotub'] = $information_info['link_yuotub'];
+        } else {
+            $data['link_yuotub'] = true;
+        }
+        if (isset($this->request->post['block_first'])) {
+            $data['block_first'] = $this->request->post['block_first'];
+        } elseif (!empty($information_info)) {
+            $data['block_first'] = $information_info['block_first'];
+        } else {
+            $data['block_first'] = true;
+        }
+        if (isset($this->request->post['block_too'])) {
+            $data['block_too'] = $this->request->post['block_too'];
+        } elseif (!empty($information_info)) {
+            $data['block_too'] = $information_info['block_too'];
+        } else {
+            $data['block_too'] = true;
+        }
 
 
 		$data['header'] = $this->load->controller('common/header');
@@ -386,25 +403,8 @@ class ControllerCatalogAbouthome extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['information_description'] as $language_id => $value) {
 
 
-
-		}
-
-		if (utf8_strlen($this->request->post['keyword']) > 0) {
-			$this->load->model('catalog/url_alias');
-
-			$url_alias_info = $this->model_catalog_url_alias->getUrlAlias($this->request->post['keyword']);
-
-			if ($url_alias_info && isset($this->request->get['information_id']) && $url_alias_info['query'] != 'information_id=' . $this->request->get['information_id']) {
-				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
-			}
-
-			if ($url_alias_info && !isset($this->request->get['information_id'])) {
-				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
-			}
-		}
 
 		if ($this->error && !isset($this->error['warning'])) {
 			$this->error['warning'] = $this->language->get('error_warning');

@@ -54,6 +54,17 @@ class ControllerCommonHome extends Controller {
                 );
             }
         }
+        $this->load->model('catalog/abouthome');
+        $information_info = $this->model_catalog_abouthome->getInformation(1);
+        $data['ab'] = $information_info;
+if($information_info){
+    $data['info_title'] = $information_info['title'];
+    $data['link_more'] = $information_info['link_more'];
+    $data['link_yuotub'] = $information_info['link_yuotub'];
+    $data['info_block_first'] = html_entity_decode($information_info['block_first'], ENT_QUOTES, 'UTF-8');
+    $data['info_block_too'] = html_entity_decode($information_info['block_too'], ENT_QUOTES, 'UTF-8');
+}
+
 
 
 

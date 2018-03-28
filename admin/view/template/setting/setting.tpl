@@ -151,6 +151,37 @@
                   <input type="text" name="config_fax" value="<?php echo $config_fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
                 </div>
               </div>
+
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-config_instagram">Instagram</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_instagram" value="<?php echo $config_instagram; ?>" placeholder="Instagram" id="input-config_instagram" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-config_facebook">Facebook</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_facebook" value="<?php echo $config_facebook; ?>" placeholder="Facebook" id="input-config_facebook" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-config_yutube">Yutube</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_yutube" value="<?php echo $config_yutube; ?>" placeholder="Yutube" id="input-config_yutube" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-config_pinterest">Pinterest</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_pinterest" value="<?php echo $config_pinterest; ?>" placeholder="Pinterest" id="input-config_pinterest" class="form-control" />
+                </div>
+              </div>
+
+
+
+
+
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-image"><?php echo $entry_image; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>

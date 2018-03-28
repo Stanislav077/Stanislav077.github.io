@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <div class="container">
-  <div class="row"><?php echo $column_left; ?>
+  <div class=""><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -8,7 +8,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>">
+    <div id="" class="">
       <?php echo $content_top; ?>
 
       <div class="top-category">
@@ -52,9 +52,60 @@
 
 
       </div>
+<?php if(isset($ab) && !empty($ab)) { ?>
+        <div class="main__aboutus">
+            <div class="main__aboutus--grid row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="main__aboutus--item aboutus--item1">
+                        <div class="aqua__heading">
+                            <?=$info_title?>
+                        </div>
+                        <div class="main-read-more">
+                            <a class="read-more" href="<?=$link_more?>">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="main__aboutus--item aboutus--item3">
+                        <?=$info_block_first?>
+                    </div>
+                </div>
+            </div>
+            <div class="main__aboutus--grid main__aboutus--grid2 row">
+                <div class="col-md-6 col-sm-12 ab-fle2">
+                    <div class="main__aboutus--item aboutus--item3">
+                        <?=$info_block_too?>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 ab-fle1"><div class="main__aboutus--item aboutus--item4">
 
-      <?php echo $content_bottom; ?>
+                        <iframe 	src="https://www.youtube.com/embed/<?=$link_yuotub?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div></div>
+            </div>
+        </div>
+<?php } ?>
+
     </div>
     <?php echo $column_right; ?></div>
 </div>
+<?php echo $content_bottom; ?>
+
 <?php echo $footer; ?>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function(){
+
+
+
+          //  console.log(iframeDoc);
+   //    var ss = document.getElementByClass("copyright"); widgetData
+            $("iframe").each(function(index, element) {
+              //  console.log(element);
+            //  console.log($(this).getElementByClass(".copyright").hide());
+            //  console.log(element.getElementById("widgetData"));
+            });
+
+        }, 3000);
+    })
+</script>

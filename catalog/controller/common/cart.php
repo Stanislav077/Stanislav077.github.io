@@ -53,6 +53,8 @@ class ControllerCommonCart extends Controller {
 		$data['text_recurring'] = $this->language->get('text_recurring');
 		$data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 		$data['text_loading'] = $this->language->get('text_loading');
+		$data['count_cart'] = $this->cart->countProducts();
+		$data['sum_cart'] = $this->currency->format($total, $this->session->data['currency']);
 
 		$data['button_remove'] = $this->language->get('button_remove');
 
@@ -65,7 +67,7 @@ class ControllerCommonCart extends Controller {
 			if ($product['image']) {
 				$image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
 			} else {
-				$image = '';
+				$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
 			}
 
 			$option_data = array();

@@ -94,6 +94,27 @@ class ModelAccountCustomer extends Model {
 		return $customer_id;
 	}
 
+
+    public function editNewsletterUs($newsletter,$email) {
+
+        $emails =  $this->db->query("SELECT email FROM " . DB_PREFIX . "customer WHERE email = '" . $email . "'");
+        if(!empty($emails->row))
+        {
+            return $emails->row;
+        }else{
+            $this->db->query("INSERT INTO " . DB_PREFIX . "customer SET customer_group_id = '1', language_id = '1', newsletter = '" . (int)$newsletter . "',email = '" . $email . "'");
+        }
+
+
+    }
+    public function editNewsletterAut() {
+
+
+        $this->db->query("UPDATE " . DB_PREFIX . "customer SET newsletter = '1' WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+    }
+
+
+
 	public function editCustomer($data) {
 		$customer_id = $this->customer->getId();
 
