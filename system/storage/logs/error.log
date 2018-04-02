@@ -1012,3 +1012,237 @@
 2018-03-27 12:23:06 - PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\OSPanel\domains\aquadesignpro.coms\admin\controller\startup\error.php:34) in C:\OSPanel\domains\aquadesignpro.coms\system\library\response.php on line 12
 2018-03-27 13:56:51 - PHP Notice:  Undefined variable: email_customer in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\common\footer.tpl on line 151
 2018-03-27 13:58:10 - PHP Notice:  Undefined variable: email_customer in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\common\footer.tpl on line 151
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 10:58:43 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 132
+2018-03-29 11:04:00 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 486
+2018-03-29 11:04:00 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 503
+2018-03-29 11:04:47 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 486
+2018-03-29 11:04:47 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 503
+2018-03-29 11:04:58 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 486
+2018-03-29 11:04:58 - PHP Notice:  Undefined index: image_sub in C:\OSPanel\domains\aquadesignpro.coms\admin\controller\catalog\category.php on line 503
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:19:19 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:20:00 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 17
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 26
+2018-03-29 12:21:06 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 50
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:22:26 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:22:59 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:23:16 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:24:54 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:25:13 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:26:08 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: proc in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 19
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 28
+2018-03-29 12:26:24 - PHP Notice:  Undefined index: options in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\extension\module\latest.tpl on line 52
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 107
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:07 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:03:43 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 109
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 111
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 16:05:47 - PHP Notice:  Undefined variable: i in C:\OSPanel\domains\aquadesignpro.coms\catalog\view\theme\default\template\product\category.tpl on line 113
+2018-03-29 17:01:12 - PHP Notice:  Undefined variable: output in C:\OSPanel\domains\aquadesignpro.coms\system\storage\modification\system\library\pagination.php on line 97
+2018-03-30 13:45:13 - PHP Notice:  Undefined variable: options1 in C:\OSPanel\domains\aquadesignpro.coms\system\storage\modification\catalog\controller\product\category.php on line 334
+2018-03-30 13:45:13 - PHP Notice:  Undefined variable: options1 in C:\OSPanel\domains\aquadesignpro.coms\catalog\controller\extension\module\latest.php on line 106
+2018-03-30 13:45:13 - PHP Notice:  Undefined variable: options1 in C:\OSPanel\domains\aquadesignpro.coms\catalog\controller\extension\module\special.php on line 113
+2018-03-30 17:21:02 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:23:32 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:25:15 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:25:39 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:27:12 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:27:54 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:27:54 - PHP Notice:  Array to string conversion in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 57
+2018-03-30 17:28:27 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:29:26 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:30:18 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:30:23 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:31:08 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:31:45 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:32:17 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:34:16 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:34:18 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:34:20 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:34:23 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-03-30 17:35:50 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-04-02 9:32:04 - PHP Notice:  Undefined variable: delete in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\catalog\about_home_list.tpl on line 30
+2018-04-02 10:22:25 - PHP Notice:  Undefined variable: quantity in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 53
+2018-04-02 11:12:56 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 11:12:56 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 11:13:42 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 11:13:42 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 11:13:48 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 11:13:48 - PHP Notice:  Undefined variable: option_value in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 95
+2018-04-02 14:08:22 - PHP Notice:  Undefined variable: header in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\module\youwatched.tpl on line 1
+2018-04-02 14:08:22 - PHP Notice:  Undefined variable: footer in C:\OSPanel\domains\aquadesignpro.coms\admin\view\template\module\youwatched.tpl on line 198
+2018-04-02 14:29:43 - PHP Notice:  Undefined variable: yuowatcher in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 800
+2018-04-02 14:30:00 - PHP Notice:  Undefined variable: yuowatcher in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 800
+2018-04-02 14:30:34 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:30:52 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:33:36 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:33:43 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:34:21 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:34:28 - PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, cannot access protected method ControllerModuleYouwatched::index() in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-system_storage_modification_system_engine_action.php on line 51
+2018-04-02 14:47:13 - PHP Notice:  Undefined index: image_width in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 594
+2018-04-02 14:47:13 - PHP Notice:  Undefined index: image_height in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 594
+2018-04-02 14:47:13 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 105
+2018-04-02 14:47:13 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 108
+2018-04-02 14:47:13 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 109
+2018-04-02 14:47:13 - PHP Warning:  imagecolorallocatealpha() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 110
+2018-04-02 14:47:13 - PHP Warning:  imagecolortransparent() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 112
+2018-04-02 14:47:13 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 117
+2018-04-02 14:47:13 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 119
+2018-04-02 14:47:21 - PHP Notice:  Undefined index: image_width in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 594
+2018-04-02 14:47:21 - PHP Notice:  Undefined index: image_height in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 594
+2018-04-02 14:47:21 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 105
+2018-04-02 14:47:21 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 108
+2018-04-02 14:47:21 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 109
+2018-04-02 14:47:21 - PHP Warning:  imagecolorallocatealpha() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 110
+2018-04-02 14:47:21 - PHP Warning:  imagecolortransparent() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 112
+2018-04-02 14:47:21 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 117
+2018-04-02 14:47:21 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in C:\OSPanel\domains\aquadesignpro.coms\system\library\image.php on line 119
+2018-04-02 14:50:07 - PHP Notice:  Undefined variable: rating in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 625
+2018-04-02 14:50:07 - PHP Notice:  Undefined variable: rating in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_controller_product_product.php on line 625
+2018-04-02 15:54:39 - PHP Notice:  Undefined variable: productsw in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 17
+2018-04-02 15:54:39 - PHP Notice:  Undefined variable: productsw in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 807
+2018-04-02 15:55:22 - PHP Notice:  Undefined variable: productsw in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 17
+2018-04-02 15:55:43 - PHP Notice:  Undefined variable: productsw in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 17
+2018-04-02 16:01:34 - PHP Notice:  Undefined index: quantity in C:\OSPanel\domains\aquadesignpro.coms\vqmod\vqcache\vq2-catalog_view_theme_default_template_product_product.tpl on line 832

@@ -146,7 +146,30 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+
+
+
+
+
+
+
 });
+function plus_qu(data) {
+    $('.block_late-'+data).attr('value', parseInt($("input.block_late-"+data).val()) + 1);
+}
+function minus_qu(data) {
+    if($('.block_late-' + data).val() !=0) {
+        $('.block_late-' + data).attr('value', parseInt($("input.block_late-" + data).val()) - 1);
+    }
+}
+function plus_qu_s(data) {
+    $('.block_special-'+data).attr('value', parseInt($("input.block_special-"+data).val()) + 1);
+}
+function minus_qu_s(data) {
+    if($('.block_special-' + data).val() !=0) {
+        $('.block_special-' + data).attr('value', parseInt($("input.block_special-" + data).val()) - 1);
+    }
+}
 
 // Cart add remove functions
 var cart = {

@@ -100,7 +100,7 @@
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="<?=$informations[0]['href']?>">About us</a></li>
-            <li class="estore"><a href="#">E-Store</a>
+            <li class="estore"><a href="<?=$estore?>">E-Store</a>
               <div class="products__sub">
                 <ul>
                   <!-- <li class="active2"><a href="#">Saltwater Fish</a>

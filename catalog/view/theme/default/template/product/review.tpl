@@ -1,21 +1,29 @@
 <?php if ($reviews) { ?>
 <?php foreach ($reviews as $review) { ?>
-<table class="table table-striped table-bordered">
-  <tr>
-    <td style="width: 50%;"><strong><?php echo $review['author']; ?></strong></td>
-    <td class="text-right"><?php echo $review['date_added']; ?></td>
-  </tr>
-  <tr>
-    <td colspan="2"><p><?php echo $review['text']; ?></p>
-      <?php for ($i = 1; $i <= 5; $i++) { ?>
-      <?php if ($review['rating'] < $i) { ?>
-      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-      <?php } else { ?>
-      <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-      <?php } ?>
-      <?php } ?></td>
-  </tr>
-</table>
+<div class="reviews__item">
+  <div class="reviews__item--name">
+    <div><?php echo $review['author']; ?></div>
+    <span><?php echo $review['date_added']; ?></span>
+  </div>
+  <div class="reviews__item--text">
+
+    <div class="rating" data-rating="<?php echo $review['rating']; ?>">
+      <div class="star hf"></div>
+      <div class="star"></div>
+      <div class="star hf"></div>
+      <div class="star"></div>
+      <div class="star hf"></div>
+      <div class="star"></div>
+      <div class="star hf"></div>
+      <div class="star"></div>
+      <div class="star hf"></div>
+      <div class="star"></div>
+    </div>
+    <div class="reviews__item--text--text">
+      <?php echo $review['text']; ?>
+    </div>
+  </div>
+</div>
 <?php } ?>
 <div class="text-right"><?php echo $pagination; ?></div>
 <?php } else { ?>

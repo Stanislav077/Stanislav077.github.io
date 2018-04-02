@@ -480,6 +480,14 @@ class ControllerCatalogCategory extends Controller {
 			$data['image'] = '';
 		}
 
+        if (isset($this->request->post['image_sub'])) {
+            $data['image_sub'] = $this->request->post['image_sub'];
+        } elseif (!empty($category_info)) {
+            $data['image_sub'] = $category_info['image_sub'];
+        } else {
+            $data['image_sub'] = '';
+        }
+
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
@@ -489,6 +497,14 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
+
+        if (isset($this->request->post['image_sub']) && is_file(DIR_IMAGE . $this->request->post['image_sub'])) {
+            $data['thumb_sub'] = $this->model_tool_image->resize($this->request->post['image_sub'], 100, 100);
+        } elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['image_sub'])) {
+            $data['thumb_sub'] = $this->model_tool_image->resize($category_info['image_sub'], 100, 100);
+        } else {
+            $data['thumb_sub'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 

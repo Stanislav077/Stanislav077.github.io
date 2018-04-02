@@ -91,7 +91,7 @@
       <div class="footer-bottom-line__item">AquadesignPRO 2018 (c.) All Rights Reserved
         <!-- <a class="our" href="#">Our policy</a> --></div>
       <div class="footer-bottom-line__item">
-        <a href="http://masgroup.com.ua" target="_blank"><img src="img/maslogo.png" alt="">
+        <a href="http://masgroup.com.ua" target="_blank"><img src="style/img/maslogo.png" alt="">
           Website development and promotion</a>
       </div>
     </div>
@@ -99,58 +99,10 @@
 </footer>
 
 
-<footer style="display: none">
-  <div class="container">
-    <div class="row">
-      <?php if ($informations) { ?>
-      <div class="col-sm-3">
-        <h5><?php echo $text_information; ?></h5>
-        <ul class="list-unstyled">
-          <?php foreach ($informations as $information) { ?>
-          <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
-          <?php } ?>
-        </ul>
-      </div>
-      <?php } ?>
-      <div class="col-sm-3">
-        <h5><?php echo $text_service; ?></h5>
-        <ul class="list-unstyled">
-          <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
-          <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-          <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5><?php echo $text_extra; ?></h5>
-        <ul class="list-unstyled">
-          <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
-          <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
-          <li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
-          <li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5><?php echo $text_account; ?></h5>
-        <ul class="list-unstyled">
-          <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-          <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-          <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
-          <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
-        </ul>
-      </div>
-    </div>
-    <hr>
-    <p><?php echo $powered; ?></p>
-  </div>
-</footer>
+
 <?php $email_customer = (isset($email_customer) ? $email_customer : "0") ?>
 <script>
-
-
-
     var ems = '<?=$email_customer?>';
-
-
     if(ems != 0) {
 
         $('.input_email').val(ems);
@@ -215,6 +167,7 @@
     })
 
 </script>
+
 </body>
 <link href="style/css/main.css" rel="stylesheet">
 <script async  src="style/js/main.js" type="text/javascript"></script>

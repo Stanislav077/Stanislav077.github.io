@@ -153,8 +153,8 @@ class ControllerCatalogAbouthome extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
+			'text' => 'About Home',
+			'href' => $this->url->link('catalog/about_home', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 
@@ -178,13 +178,14 @@ class ControllerCatalogAbouthome extends Controller {
 				//'information_id' => $result['information_id'],
 				'title'          => $result['title'],
 				'sort_order'     => $result['link_yuotub'],
+				'link_more'     => $result['link_more'],
 				'edit'           => $this->url->link('catalog/about_home/edit', 'token=' . $this->session->data['token'] . '&id=' . $result['id'] . $url, true)
 			);
 		}
 
-		$data['heading_title'] = $this->language->get('heading_title');
+		$data['heading_title'] = 'About Home';
 
-		$data['text_list'] = $this->language->get('text_list');
+		$data['text_list'] = 'Block about to home';
 		$data['text_no_results'] = $this->language->get('text_no_results');
 		$data['text_confirm'] = $this->language->get('text_confirm');
 

@@ -36,13 +36,17 @@
                    <p ><?php echo $column_title; ?></p>
                 </td>
                   <td class="text-right">
-                    <p href="<?php echo $sort_sort_order; ?>"><?php echo 'Link'; ?></p>
-                   </td>
+                    <p href="<?php echo $sort_sort_order; ?>"><?php echo 'Link to Yutube'; ?></p>
 
+                   </td>
+                  <td class="text-right">
+                                <p href="<?php echo $sort_sort_order; ?>"><?php echo 'Link to More'; ?></p>
+                  </td>
                   <td class="text-right"><?php echo $column_action; ?></td>
 
                 </tr>
               </thead>
+
               <tbody>
                 <?php if ($informations) { ?>
                 <?php foreach ($informations as $information) { ?>
@@ -50,6 +54,7 @@
 
                   <td class="text-left"><?php echo $information['title']; ?></td>
                   <td class="text-right"><?php echo $information['sort_order']; ?></td>
+                  <td class="text-right"><?php echo $information['link_more']; ?></td>
                   <td class="text-right"><a href="<?php echo $information['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>

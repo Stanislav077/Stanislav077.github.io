@@ -138,7 +138,7 @@ $data['customer_id'] = $this->customer->isLogged();
 				);
 			}
 		}
-
+         $data['estore'] = $this->url->link('product/category', 'path=59');
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');

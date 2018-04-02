@@ -6,13 +6,13 @@
   <div class="main-sale__cont">
     <div class="container">
       <div class="main-sale__slider">
-<?=$i=0;?>
+<?php $i=0;?>
         <?php foreach ($products as $product) { ?>
-        <div class="main-sale__slider--item-per opt_<?php echo $product['product_id']; ?>">
+        <div class="active_special main-sale__slider--item-per opt_<?php echo $product['product_id']; ?>">
           <div class="main-sale__slider--item">
             <div class="sale-button">
               <a class="btn-white btnfos-4" href="<?php echo $product['href']; ?>"><span>More details</span></a>
-              <a class="btn-white btnfos-4" onclick="addToCartOpt('<?php echo $product['product_id']; ?>');" ><span>Buy now</span></a>
+              <a class="btn-white btnfos-4" onclick="addToCartOpt_s('<?php echo $product['product_id']; ?>');" ><span>Buy now</span></a>
             </div>
             <div class="sale__lable"><?=$product['proc']?>%</div>
             <div class="main-sale__slider--item--img">
@@ -26,11 +26,11 @@
                 <?=$product['quantity']?> <span>in stock</span>
               </div>
               <div class="sale-main-val val-mob-dis .optq_<?=$product['product_id']?>">
-                <div data="<?=$i?>" class="sale-main-val-but-l minus_qu"></div>
+                <div onclick="minus_qu_s('<?=$i?>')" data="<?=$i?>" class="sale-main-val-but-l "></div>
 
-               <input class="col-quantity res-<?=$i?>" type="text" name="quantity" value="1"/>
+               <input class="col-quantity res-<?=$i?> block_special-<?=$i?>" type="text" name="quantity" value="1"/>
 
-                <div data="<?=$i?>" class="sale-main-val-but-r plus_qu"></div>
+                <div onclick="plus_qu_s('<?=$i?>')" data="<?=$i?>" class="sale-main-val-but-r "></div>
               </div>
               <div class="sale-main-val">
                 <a onclick="wishlist.add('<?php echo $product['product_id']; ?>');" class="sale-main-val-heart"></a>
@@ -91,8 +91,8 @@
 
                 <?php if (!$option_value['image']) { ?>
                 <div class=" main-sale__slider--item--size--item">
-                  <label class="in_lab" for="input-radio<?php echo $option_value['product_option_value_id']; ?>">  <?php echo $option_value['name']; ?></label>
-                  <input id="input-radio<?php echo $option_value['product_option_value_id']; ?>" type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
+                  <label class="in_lab" for="special-input-radio<?php echo $option_value['product_option_value_id']; ?>">  <?php echo $option_value['name']; ?></label>
+                  <input id="special-input-radio<?php echo $option_value['product_option_value_id']; ?>" type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                    <!--    <?php if ($option_value['price']) { ?>
                       (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
                       <?php } ?> -->
@@ -150,53 +150,27 @@
 </div>
 
 
-<script>
-    $(document).ready(function() {
-        $(".plus_qu").click(function(){
-            var counts = $(this).attr('data');
-            $(this).prev("input").attr('value', parseInt($("input.res-"+counts).val()) + 1);
-            var quantiti = $("input.res-"+counts).val();
 
-        });
-
-        $(".minus_qu").click(function(){
-
-            var counts = $(this).attr('data');
-            if($(this).next("input.res-"+counts).val() !=0) {
-                $(this).next("input").attr('value', parseInt($("input.res-"+counts).val()) - 1);
-                var quantiti = $("input.res-"+counts).val();
-
-            }
-        });
-    });
-</script>
 
 
 
 <script>
-    $("input[name='option[228]'],input[name='option[229]']").on('click',function () {
-        $('.main-sale__slider--item--size--item,.main-sale__slider--item--size--item label').removeClass('active');
-       $('input[name=\'option[228]\']:checked,input[name=\'option[229]\']:checked').parent().addClass('active');
-
-    })
-
-
+$('.active_special .in_lab').on('click',function () {
+    $('.main-sale__slider--item--size--item').removeClass('active');
+        $(this).parent().addClass('active');
+})
 </script>
 
 
 <script type="text/javascript"><!--
-    function addToCartOpt(product_id){
+    function addToCartOpt_s(product_id){
+
         $.ajax({
             url: 'index.php?route=checkout/cart/add',
             type: 'post',
             data: $('.opt_'+product_id+' input[type=\'hidden\'], .opt_'+product_id+' input[name=\'quantity\'], .opt_'+product_id+' select, .opt_'+product_id+' input[type=\'checkbox\']:checked,.opt_'+product_id+' input[type=\'radio\']:checked'),
             dataType: 'json',
             success: function(json) {
-
-            //    console.log(this);
-             //   console.log(json);
-
-
 
                 $('.success, .warning, .attention, information, .error').remove();
                 if (json['error']) {
@@ -209,7 +183,9 @@
                 if (json['success']) {
                     $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
                     $('.success').fadeIn('slow');
-                    $('#cart-total').html(json['total']);
+                    $('.cyfbas').html(json['total2']);
+                    $('.bas-cart__item').load('index.php?route=common/cart/info .bas-cart__item a');
+                    $('.bas-cart__subtorial > div').html(json['total3']);
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
                 }
             }
