@@ -30,7 +30,7 @@ class ControllerInformationNews extends Controller {
 		if (isset($this->request->get['limit'])) {
 			$limit = (int)$this->request->get['limit'];
 		} else {
-			$limit = $this->config->get($this->config->get('config_theme') . '_product_limit');
+			$limit = 12;
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -82,6 +82,8 @@ class ControllerInformationNews extends Controller {
 		$news_total = $this->model_catalog_news->getTotalNews();
 		$news_list = $this->model_catalog_news->getNews($filter_data);
 
+
+
 		$data['news_list'] = array();
 		
 		if ($news_list) {
@@ -112,7 +114,14 @@ class ControllerInformationNews extends Controller {
 				$news_setting['description_limit'] = '300';
 				$news_setting['news_thumb_width'] = '220';
 				$news_setting['news_thumb_height'] = '220';
+                $news_setting['description'] = "";
 			}
+			if(!isset($news_setting['description']))
+            {
+                $data['description_blog']  = "";
+            }else{
+                $data['description_blog'] = $news_setting['description'];
+            }
 
 			foreach ($news_list as $result) {
 
@@ -332,6 +341,48 @@ class ControllerInformationNews extends Controller {
 				$data['thumb'] = false;
 				$data['popup'] = false;
 			}
+
+
+            if ($news_info['image_ban']) {
+                $data['image_ban'] = true;
+            } else {
+                $data['image_ban'] = false;
+            }
+            if($news_info['image_ban']){
+                $data['thumb_ban'] = $this->model_tool_image->resize($news_info['image_ban'], $news_setting['news_thumb_width'],
+                    $news_setting['news_thumb_height']);
+                $data['popup_ban'] = $this->model_tool_image->resize($news_info['image_ban'], $news_setting['news_popup_width'],
+                    $news_setting['news_popup_height']);
+            }else{
+                $data['thumb_ban'] = false;
+                $data['popup_ban'] = false;
+            }
+
+            $news_liststs = $this->model_catalog_news->getNewss();
+            $data['reletet_news']=array();
+
+
+
+            foreach ($news_liststs as $news_listst )
+            {
+
+                if($news_listst['image']){
+                    $image = $this->model_tool_image->resize($news_listst['image'], $news_setting['news_thumb_width'], $news_setting['news_thumb_height']);
+                }else{
+                    $image = false;
+                }
+
+
+
+                $data['reletet_news'][] =array(
+                    'image' => $image,
+                    'title' => $news_listst['title'],
+                    'description' => utf8_substr(strip_tags(html_entity_decode($news_listst['description'], ENT_QUOTES,
+                        'UTF-8')), 0, $news_setting['description_limit']),
+                    'href' => $this->url->link('information/news/info', 'news_id=' . $news_listst['news_id'])
+                );
+            }
+
 
 			$data['button_news'] = $this->language->get('button_news');
 			$data['button_continue'] = $this->language->get('button_continue');

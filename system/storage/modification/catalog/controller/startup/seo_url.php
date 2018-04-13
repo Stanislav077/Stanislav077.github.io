@@ -89,7 +89,9 @@ class ControllerStartupSeoUrl extends Controller {
 					$this->request->get['route'] = 'product/manufacturer/info';
 				} elseif (isset($this->request->get['information_id'])) {
 					$this->request->get['route'] = 'information/information';
-				}
+				}elseif (isset($this->request->get['news'])) {
+                    $this->request->get['route'] = 'information/news';
+                }
 			}
 
 			if (isset($this->request->get['route'])) {

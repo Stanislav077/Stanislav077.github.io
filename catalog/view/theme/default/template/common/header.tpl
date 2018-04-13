@@ -17,7 +17,9 @@
 <?php if ($keywords) { ?>
 <meta name="keywords" content= "<?php echo $keywords; ?>" />
 <?php } ?>
+
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -29,6 +31,7 @@
 <?php } ?>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 
+
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -38,6 +41,7 @@
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
 <?php } ?>
+
 </head>
 <body class="<?php echo $class; ?>">
 
@@ -81,21 +85,32 @@
           <div class="header-main__cont--top--sign">
             <a href="#modal2">Sign in</a>
           </div>
+          <?php if(isset($customer_id)) { ?>
           <div class="header-main__cont--top--profile">
-            <a href="#">Profile</a>
+            <a onclick="return false;" href="#">Profile</a>
+
             <div class="profile-pop">
               <ul>
 
-                <li><a href="#">My Account <?=$customer_id?></a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Wish list</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="/index.php?route=account/edit">My Account </a></li>
+                <li><a href="/index.php?route=account/order">Orders</a></li>
+                <li><a href="/index.php?route=account/wishlist">Wish list</a></li>
+                <li><a href="/index.php?route=account/logout">Log Out</a></li>
 
 
               </ul>
             </div>
+
           </div>
+          <?php }else{ ?>
+          <div class="header-main__cont--top--profile">
+            <a onclick="return false;" href="#">Profile</a>
+          </div>
+          <?php } ?>
         </div>
+
+
+
         <div class="header-main__cont--bottom">
           <ul>
             <li><a href="/">Home</a></li>
@@ -119,18 +134,21 @@
                 </ul>
               </div>
             </li>
-            <li class="products"><a href="#">Products</a>
+            <li class="products"><a href="<?=$cat_pr?>">Products</a>
               <div class="products__sub">
                 <ul>
-                  <li><a href="#">Artificial Reefs</a></li>
-                  <li><a href="#">Aquariums</a></li>
-                  <li><a href="#">Bubble wall</a></li>
+                  <?php foreach($categories_prod as $categorie_prod) { ?>
+
+                  <li><a href="<?=$categorie_prod['href']?>"><?=$categorie_prod['name']?></a></li>
+
+
+                  <?php } ?>
                 </ul>
               </div>
             </li>
-            <li><a href="#">Promotion</a></li>
-            <li><a href="#">Wholesale</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="<?=$prom?>">Promotion</a></li>
+            <li><a href="<?=$wholesale?>">Wholesale</a></li>
+            <li><a href="<?=$blogs?>">Blog</a></li>
             <li><a href="<?=$contact?>">Contacts</a></li>
           </ul>
         </div>

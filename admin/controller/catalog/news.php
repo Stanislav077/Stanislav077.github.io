@@ -447,6 +447,13 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['image'] = '';
 		}
+        if (isset($this->request->post['image_ban'])) {
+            $data['image_ban'] = $this->request->post['image_ban'];
+        } elseif (!empty($news_info)) {
+            $data['image_ban'] = $news_info['image_ban'];
+        } else {
+            $data['image_ban'] = '';
+        }
 
 		$this->load->model('tool/image');
 
@@ -457,6 +464,13 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
+        if (isset($this->request->post['image_ban']) && is_file(DIR_IMAGE . $this->request->post['image_ban'])) {
+            $data['thumb_ban'] = $this->model_tool_image->resize($this->request->post['image_ban'], 100, 100);
+        } elseif (!empty($news_info) && is_file(DIR_IMAGE . $news_info['image'])) {
+            $data['thumb_ban'] = $this->model_tool_image->resize($news_info['image_ban'], 100, 100);
+        } else {
+            $data['thumb_ban'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
@@ -512,7 +526,7 @@ class ControllerCatalogNews extends Controller {
 			$data['error_limit'] = '';
 		}		
 
-		$data['heading_title'] = $this->language->get('heading_title');
+		$data['heading_title'] = 'Setting News';
 
 		$data['text_yes'] = $this->language->get('text_yes');
 		$data['text_no'] = $this->language->get('text_no');
@@ -535,19 +549,19 @@ class ControllerCatalogNews extends Controller {
 	
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true),
-			'text'      => $this->language->get('text_home'),
+			'text'      => "Home",
 			'separator' => false
 		);
 	
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true),
-			'text'      => $this->language->get('heading_title'),
+			'text'      => "news",
 			'separator' => ' :: '
 		);
 
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('catalog/news/setting', 'token=' . $this->session->data['token'], true),
-			'text'      => $this->language->get('text_news_setting'),
+			'text'      => "setting",
 			'separator' => ' :: '
 		);	
 
@@ -588,12 +602,19 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['description_limit'] = '';
 		}
+        if (isset($news_setting['description'])) {
+            $data['description'] = $news_setting['description'];
+        } else {
+            $data['description'] = '';
+        }
 
 		if (isset($news_setting['news_share'])) {
 			$data['news_share'] = $news_setting['news_share'];
 		} else {
 			$data['news_share'] = '';
-		}								
+		}
+
+
 
 		$news_url = $this->model_catalog_news->getNewsListUrl('information/news');
 

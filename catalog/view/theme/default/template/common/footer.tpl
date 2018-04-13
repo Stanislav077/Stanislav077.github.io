@@ -26,7 +26,7 @@
             <a href="#"><img src="style/img/logo.png" alt=""></a>
           </div>
           <ul>
-            <li><a class="tel-foot" href="tel:+12677272782"><?=$telephone?></a></li>
+            <li><a class="tel-foot" href="tel:<?=$telephone?>"><?=$telephone?></a></li>
             <li><a class="mail-foot" href="mailto:<?=$email?>"><?=$email?></a></li>
             <li><span class="adress-foot"><?=$address?></span></li>
           </ul>
@@ -48,9 +48,9 @@
             Products
           </div>
           <ul>
-            <li><a href="#">Artificial Reefs</a></li>
-            <li><a href="#">Aquariums</a></li>
-            <li><a href="#">Bubble wall</a></li>
+            <?php foreach($categories_prod as $categorie_prod) { ?>
+            <li><a href="<?=$categorie_prod['href']?>"><?=$categorie_prod['name']?></a></li>
+   <?php } ?>
           </ul>
         </div>
 
@@ -59,9 +59,9 @@
             About us
           </div>
           <ul>
-            <li><a href="#">Promotions</a></li>
+            <li><a href="<?=$prom?>">Promotions</a></li>
             <li><a href="#">Our policy</a></li>
-            <li><a href="#">Wholesale</a></li>
+            <li><a href="<?=$wholesale?>">Wholesale</a></li>
           </ul>
           <div class="foot-cont-1__cap foot-cont-2__cap">
             Subscribe to us
@@ -80,7 +80,7 @@
             <a href="<?=$contact?>">Contacts</a>
           </div>
           <div class="foot-cont-1__cap foot-cont-3__cap">
-            <a href="#">Blog</a>
+            <a href="<?=$blogs?>">Blog</a>
           </div>
         </div>
       </div>

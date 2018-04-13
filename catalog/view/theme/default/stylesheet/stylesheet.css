@@ -991,3 +991,45 @@ h2.price {
 	color: #36d1dc;
 	content: "\f005";
 }
+.cont__product--content--text ul {
+	list-style-image: url(/style/img/icon/liststyle.png) !important;
+}
+.cont__product--content {
+	width: 100% !important;
+}
+.cont__estore.prods {
+	padding: 10px 0;
+	background-color: #ffffff;
+	margin-top: 5px;
+}
+.cont__estore.prods .estore__sidebar
+{
+	background: #f8f9fb;
+}
+.sucses_mass {
+	text-align: center;
+	padding: 10px;
+	color: #fff;
+	font-weight: 700;
+	background: linear-gradient(-117deg,#36d1dc 0,#5b86e5 100%);
+	position: relative;
+}
+.sucses_mass .close_suc:before {
+	font-family: Arial,"Helvetica CY","Nimbus Sans L",sans-serif!important;
+	font-size: 25px;
+	line-height: 20px;
+	content: "\00d7";
+	position: absolute;
+	float: right;
+	right: 5px;
+	top: 0px;
+	color: #000;
+	font-weight: 100;
+	cursor: pointer;
+}
+form .error
+{
+	color: red;
+	font-size: 16px;
+}
+

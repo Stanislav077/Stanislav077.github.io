@@ -9,6 +9,9 @@ class ModelCatalogNews extends Model {
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "news SET image = '" . $this->db->escape($data['image']) . "' WHERE news_id = '" . (int)$news_id . "'");
 		}
+        if (isset($data['image_ban'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "news SET image_ban = '" . $this->db->escape($data['image_ban']) . "' WHERE news_id = '" . (int)$news_id . "'");
+        }
 	
 		if (isset($data['date_added'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "news SET date_added = '" . $this->db->escape($data['date_added']) . "' WHERE news_id = '" . (int)$news_id . "'");
@@ -37,6 +40,9 @@ class ModelCatalogNews extends Model {
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "news SET image = '" . $this->db->escape($data['image']) . "' WHERE news_id = '" . (int)$news_id . "'");
 		}
+        if (isset($data['image_ban'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "news SET image_ban = '" . $this->db->escape($data['image_ban']) . "' WHERE news_id = '" . (int)$news_id . "'");
+        }
 		
 		if (isset($data['date_added'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "news SET date_added = '" . $this->db->escape($data['date_added']) . "' WHERE news_id = '" . (int)$news_id . "'");

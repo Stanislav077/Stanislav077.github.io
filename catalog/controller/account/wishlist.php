@@ -75,7 +75,7 @@ class ControllerAccountWishList extends Controller {
 
 			if ($product_info) {
 				if ($product_info['image']) {
-					$image = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_wishlist_width'), $this->config->get($this->config->get('config_theme') . '_image_wishlist_height'));
+					$image = $this->model_tool_image->resize($product_info['image'], 190, 150);
 				} else {
 					$image = false;
 				}
@@ -100,14 +100,67 @@ class ControllerAccountWishList extends Controller {
 					$special = false;
 				}
 
+                //$data['options'] = array();
+
+                $options = $this->model_catalog_product->getProductOptions($result['product_id']);
+                //  $proc = ($product['price'] - $product['special'])/$product['price']*100; str_replace(',', '.', $result['price'])
+                // | (a — b) / [ (a + b) / 2 ] | * 100 %
+
+                //  $dst = str_replace('.', ',', $result['price']);
+                //  $spt = str_replace('.', ',', $result['special']);
+
+                foreach ($options as $option) {
+
+                    $product_option_value_data = array();
+
+                    foreach ($option['product_option_value'] as $option_value) {
+                        if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+                            if ((($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) && (float)$option_value['price']) {
+                                $price = $this->currency->format($this->tax->calculate($option_value['price'], $product_info['tax_class_id'], $this->config->get('config_tax') ? 'P' : false), $this->session->data['currency']);
+                            } else {
+                                $price = false;
+                            }
+
+                            $product_option_value_data[] = array(
+                                'product_option_value_id' => $option_value['product_option_value_id'],
+                                'option_value_id' => $option_value['option_value_id'],
+                                'name' => $option_value['name'],
+                                'image' => $this->model_tool_image->resize($option_value['image'], 15, 15),
+                                'price' => $price,
+                                'price_prefix' => $option_value['price_prefix']
+                            );
+                        }
+                    }
+
+                    $options1[] = array(
+                        'product_option_id' => $option['product_option_id'],
+                        'product_option_value' => $product_option_value_data,
+                        'option_id' => $option['option_id'],
+                        'name' => $option['name'],
+                        'type' => $option['type'],
+                        'value' => $option['value'],
+                        'required' => $option['required'],
+                        'val'       => $option['product_id'],
+                    );
+
+                }
+
+
+                $dst = $product_info['price'];
+                $spt = $product_info['special'];
+
+
 				$data['products'][] = array(
 					'product_id' => $product_info['product_id'],
 					'thumb'      => $image,
 					'name'       => $product_info['name'],
 					'model'      => $product_info['model'],
+                    'quantity'    => $product_info['quantity'],
+                    'options'     => $options1,
 					'stock'      => $stock,
-					'price'      => $price,
-					'special'    => $special,
+                    'price'       => $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
+                    'proc'        => round(($dst-$spt)/$dst*100,2),
+                    'special'     => $special,
 					'href'       => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
 					'remove'     => $this->url->link('account/wishlist', 'remove=' . $product_info['product_id'])
 				);

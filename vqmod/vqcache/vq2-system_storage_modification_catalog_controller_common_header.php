@@ -112,6 +112,10 @@ $data['customer_id'] = $this->customer->isLogged();
 		$data['logout'] = $this->url->link('account/logout', '', true);
 		$data['shopping_cart'] = $this->url->link('checkout/cart');
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
+		$data['blogs'] = $this->url->link('information/news', '', true);
+		$data['prom'] = $this->url->link('information/promotion', '', true);
+
+
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
 
@@ -155,7 +159,31 @@ $data['customer_id'] = $this->customer->isLogged();
 				);
 			}
 		}
+
+        $this->load->model('catalog/catprod');
+
+        $data['categories_prod'] = array();
+
+        $categories_prod = $this->model_catalog_catprod->getCategoriesAll(70);
+
+
+        foreach ($categories_prod as $categorie_prod) {
+
+            $data['categories_prod'][] = array(
+                'name'     => $categorie_prod['name'],
+                'cat_prod_id'     => $categorie_prod['cat_prod_id'],
+                'href'     => $this->url->link('product/catprod', 'cat_prod_id=' . $categorie_prod['cat_prod_id'])
+
+            );
+
+
+        }
+
+
          $data['estore'] = $this->url->link('product/category', 'path=59');
+         $data['cat_pr'] = $this->url->link('product/catprod', 'cat_prod_id=70');
+        $data['wholesale'] = $this->url->link('information/wholesale', '', true);
+
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');

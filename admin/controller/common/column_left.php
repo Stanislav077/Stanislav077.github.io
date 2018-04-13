@@ -141,10 +141,50 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);					
 			}
+
+
+            if ($this->user->hasPermission('access', 'catalog/cat_prod')) {
+                $catalog[] = array(
+                    'name'	   => 'Categories Products',
+                    'href'     => $this->url->link('catalog/cat_prod', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'catalog/prodcat')) {
+                $catalog[] = array(
+                    'name'	   => 'Products',
+                    'href'     => $this->url->link('catalog/prodcat', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
+
+            if ($this->user->hasPermission('access', 'catalog/news')) {
+                $catalog[] = array(
+                    'name'	   => 'Blog',
+                    'href'     => $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'catalog/promotion')) {
+                $catalog[] = array(
+                    'name'	   => 'Promotion',
+                    'href'     => $this->url->link('catalog/promotion', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
             if ($this->user->hasPermission('access', 'catalog/about_home')) {
                 $catalog[] = array(
                     'name'	   => 'Block about to home',
                     'href'     => $this->url->link('catalog/about_home', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'catalog/wholesale')) {
+                $catalog[] = array(
+                    'name'	   => 'Wholesale',
+                    'href'     => $this->url->link('catalog/wholesale', 'token=' . $this->session->data['token'], true),
                     'children' => array()
                 );
             }

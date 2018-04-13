@@ -1,76 +1,76 @@
 <?php echo $header; ?>
+
+
+
 <div class="container">
-	<ul class="breadcrumb">
+	<div class="breadcrumbs">
 		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
-		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<a class="breadcrumbs__item" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
 		<?php } ?>
-	</ul>
-	<div class="row"><?php echo $column_left; ?>
-		<?php if ($column_left && $column_right) { ?>
-		<?php $class = 'col-sm-6'; ?>
-		<?php } elseif ($column_left || $column_right) { ?>
-		<?php $class = 'col-sm-9'; ?>
-		<?php } else { ?>
-		<?php $class = 'col-sm-12'; ?>
-		<?php } ?>
-		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-			<div class="row">
-				<?php if ($thumb) { ?>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/></a>
-					</div>
-				</div>
-				<?php } ?>
-				<div class="<?php echo $thumb ? 'col-sm-8' : 'col-sm-12'; ?>">
-					<h1><?php echo $heading_title; ?></h1>
-					<div class="tab-content">
-						<div class="description">
-							<?php echo $description; ?>
-						</div>
-						<div class="col-sm-4"><i class="fa fa-clock-o"></i>&nbsp;<?php echo $posted; ?></div>
-						<div class="col-sm-4"><i class="fa fa-eye"></i>&nbsp;<?php echo $viewed; ?></div>
-						<?php if($news_share) { ?>
-						<div class="col-sm-4">
-							<div class="addthis">
-								<!-- AddThis Button BEGIN -->
-								<div class="addthis_toolbox addthis_default_style ">
-									<a class="addthis_button_email"></a>
-									<a class="addthis_button_print"></a>
-									<a class="addthis_button_preferred_1"></a>
-									<a class="addthis_button_preferred_2"></a>
-									<a class="addthis_button_preferred_3"></a>
-									<a class="addthis_button_preferred_4"></a>
-									<a class="addthis_button_compact"></a>
-									<a class="addthis_counter addthis_bubble_style"></a>
-								</div>
-								<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-							</div>
-						</div>
-						<?php } ?>
-					</div>
-				</div>
-				<div class="col-sm-12">
-					
-					<div class="buttons">
-						<div class="pull-left">
-							<a class="btn btn-primary" href="<?php echo $news_list; ?>"><?php echo $button_news; ?></a>
-						</div>
-						<div class="pull-right">
-							<a class="btn btn-primary" href="<?php echo $continue; ?>"><?php echo $button_continue; ?></a>
-						</div>
-					</div>
+	</div>
+</div>
+<div class="estore__content">
+	<div class="container">
+		<div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Blog</a></div>
+
+
+		<div class="blog__list__content">
+			<div style="background: url('<?php echo $popup_ban; ?>') no-repeat" class="blog__list__content-bg">
+				<div class="blog__list__content-bg--cap">
+					<?php echo $heading_title; ?>
 				</div>
 			</div>
-		<?php echo $content_bottom; ?></div>
-	<?php echo $column_right; ?></div>
-	<script type="text/javascript"><!--
-		$(document).ready(function () {
-			$('.thumbnail').magnificPopup({
-				type: 'image',
-				delegate: 'a',
-			});
-		});
-	//--></script>
+
+			<div class="blog__list__content--cont">
+				<div class="blog-cont__item">
+					<?php echo $description; ?>
+				</div>
+
+					<?php echo $column_right; ?>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+<div class="caption__blog">
+	<div class="aqua__heading2">Related articles</div>
 </div>
+<div class="blog__list">
+	<div class="container">
+		<div class="article__list">
+<?php foreach($reletet_news as $reletet_new) { ?>
+			<div class="article__list--item">
+				<div class="article__list--item--img">
+					<img src="<?=$reletet_new['image']?>" alt="">
+				</div>
+				<div class="article__list--item--cap">
+					<a href="<?=$reletet_new['href']?>"><?=$reletet_new['title']?> </a>
+				</div>
+				<div class="article__list--item--text">
+					<?=$reletet_new['description']?>
+				</div>
+				<div class="article__list--item--link">
+					<a class="read-more" href="<?=$reletet_new['href']?>">Read more</a>
+				</div>
+			</div>
+<?php } ?>
+
+
+
+		</div>
+
+	</div>
+
+
+
+</div>
+
+
+
+</div>
+
 <?php echo $footer; ?>

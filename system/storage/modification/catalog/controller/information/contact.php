@@ -24,12 +24,21 @@ class ControllerInformationContact extends Controller {
 		
 			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
-			$mail->setText($this->request->post['enquiry']);
+
+			$content = 'Name: '.$this->request->post['name'];
+			$content .= '<br/>';
+			$content .= 'Phone: '.$this->request->post['telephone'];
+            $content .= '<br/>';
+			$content .= 'E-mail: '.$this->request->post['email'];
+            $content .= '<br/>';
+			$content .= 'Message: '.$this->request->post['enquiry'];
+
+			$mail->setHtml($content);
 			$mail->send();
 
 			$this->response->redirect($this->url->link('information/contact/success'));
 		}
-
+       // telephone
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -97,6 +106,7 @@ class ControllerInformationContact extends Controller {
 		$data['fax'] = $this->config->get('config_fax');
 		$data['open'] = nl2br($this->config->get('config_open'));
 		$data['comment'] = $this->config->get('config_comment');
+		$data['ems'] = $this->config->get('config_email');
 
 		$data['locations'] = array();
 
@@ -209,6 +219,74 @@ class ControllerInformationContact extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
+        $data['action'] = $this->url->link('information/contact', '', true);
+
+        $data['store'] = $this->config->get('config_name');
+        $data['address'] = nl2br($this->config->get('config_address'));
+        $data['geocode'] = $this->config->get('config_geocode');
+        $data['geocode_hl'] = $this->config->get('config_language');
+        $data['telephone'] = $this->config->get('config_telephone');
+        $data['fax'] = $this->config->get('config_fax');
+        $data['open'] = nl2br($this->config->get('config_open'));
+        $data['comment'] = $this->config->get('config_comment');
+        $data['ems'] = $this->config->get('config_email');
+
+$data['text_sms']='Your message has been sent!';
+        $data['heading_title'] = $this->language->get('heading_title');
+
+        $data['text_location'] = $this->language->get('text_location');
+        $data['text_store'] = $this->language->get('text_store');
+        $data['text_contact'] = $this->language->get('text_contact');
+        $data['text_address'] = $this->language->get('text_address');
+        $data['text_telephone'] = $this->language->get('text_telephone');
+        $data['text_fax'] = $this->language->get('text_fax');
+        $data['text_open'] = $this->language->get('text_open');
+        $data['text_comment'] = $this->language->get('text_comment');
+
+        $data['entry_name'] = $this->language->get('entry_name');
+        $data['entry_email'] = $this->language->get('entry_email');
+        $data['entry_enquiry'] = $this->language->get('entry_enquiry');
+
+        $data['button_map'] = $this->language->get('button_map');
+
+        if (isset($this->error['name'])) {
+            $data['error_name'] = $this->error['name'];
+        } else {
+            $data['error_name'] = '';
+        }
+
+        if (isset($this->error['email'])) {
+            $data['error_email'] = $this->error['email'];
+        } else {
+            $data['error_email'] = '';
+        }
+
+        if (isset($this->error['enquiry'])) {
+            $data['error_enquiry'] = $this->error['enquiry'];
+        } else {
+            $data['error_enquiry'] = '';
+        }
+
+        if (isset($this->request->post['name'])) {
+            $data['name'] = $this->request->post['name'];
+        } else {
+            $data['name'] = $this->customer->getFirstName();
+        }
+
+        if (isset($this->request->post['email'])) {
+            $data['email'] = $this->request->post['email'];
+        } else {
+            $data['email'] = $this->customer->getEmail();
+        }
+
+        if (isset($this->request->post['enquiry'])) {
+            $data['enquiry'] = $this->request->post['enquiry'];
+        } else {
+            $data['enquiry'] = '';
+        }
+
+
+
 		$data['continue'] = $this->url->link('common/home');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -218,6 +296,6 @@ class ControllerInformationContact extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('common/success', $data));
+		$this->response->setOutput($this->load->view('information/contact', $data));
 	}
 }

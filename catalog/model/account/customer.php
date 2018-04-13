@@ -118,7 +118,11 @@ class ModelAccountCustomer extends Model {
 	public function editCustomer($data) {
 		$customer_id = $this->customer->getId();
 
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET  firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "',  custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
+	if($data['company']){
+        $this->db->query("UPDATE " . DB_PREFIX . "address SET company = '" . $this->db->escape($data['company']) . "',lastname = '" . $this->db->escape($data['lastname']) . "',firstname = '" . $this->db->escape($data['firstname']) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+    }
+
 	}
 
 	public function editPassword($email, $password) {
@@ -134,7 +138,7 @@ class ModelAccountCustomer extends Model {
 	}
 
 	public function getCustomer($customer_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer c LEFT JOIN " . DB_PREFIX . "address s on(s.customer_id = c.customer_id) WHERE c.customer_id = '" . (int)$customer_id . "'");
 
 		return $query->row;
 	}

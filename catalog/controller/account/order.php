@@ -61,13 +61,17 @@ class ControllerAccountOrder extends Controller {
 		$order_total = $this->model_account_order->getTotalOrders();
 
 		$results = $this->model_account_order->getOrders(($page - 1) * 10, 10);
-
+        $data['oldTotals'] =0;
+        $data['slide_tot'] =0;
 		foreach ($results as $result) {
 			$product_total = $this->model_account_order->getTotalOrderProductsByOrderId($result['order_id']);
 			$voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
 
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
+				'orders_adress'   => $result['payment_address_1'],
+				'orders_city'   => $result['payment_city'],
+				'orders_pa'   => $result['payment_postcode'],
 				'name'       => $result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
@@ -75,8 +79,12 @@ class ControllerAccountOrder extends Controller {
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
 				'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
 			);
+			$data['oldTotals'] +=$result['total'];
+			$data['slide_tot'] +=$result['total'];
+			$code = $result['currency_code'];
+			$code_val = $result['currency_value'];
 		}
-
+        $data['oldTotal'] = $this->currency->format($data['oldTotals'], $code, $code_val);
 		$pagination = new Pagination();
 		$pagination->total = $order_total;
 		$pagination->page = $page;

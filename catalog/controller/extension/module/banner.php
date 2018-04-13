@@ -13,6 +13,11 @@ class ControllerExtensionModuleBanner extends Controller {
 		$data['banners'] = array();
 
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
+		if(isset($this->request->get['news_id'])){
+            $data['news_baner']= $this->request->get['news_id'];
+        }else{
+            $data['news_baner']= 0;
+        }
 
 		foreach ($results as $result) {
 			if (is_file(DIR_IMAGE . $result['image'])) {

@@ -19,6 +19,7 @@ class ControllerCommonFooter extends Controller {
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
+        $data['prom'] = $this->url->link('information/promotion', '', true);
 
 		$this->load->model('catalog/information');
 
@@ -33,7 +34,28 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
+        $this->load->model('catalog/catprod');
 
+        $data['categories_prod'] = array();
+
+        $categories_prod = $this->model_catalog_catprod->getCategoriesAll(70);
+
+
+        foreach ($categories_prod as $categorie_prod) {
+
+            $data['categories_prod'][] = array(
+                'name'     => $categorie_prod['name'],
+                'cat_prod_id'     => $categorie_prod['cat_prod_id'],
+                'href'     => $this->url->link('product/catprod', 'cat_prod_id=' . $categorie_prod['cat_prod_id'])
+
+            );
+
+
+        }
+
+
+        $data['estore'] = $this->url->link('product/category', 'path=59');
+        $data['cat_pr'] = $this->url->link('product/catprod', 'cat_prod_id=70');
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
@@ -92,6 +114,9 @@ class ControllerCommonFooter extends Controller {
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['email'] = $this->config->get('config_email');
 		$data['address'] = $this->config->get('config_address');
+        $data['blogs'] = $this->url->link('information/news', '', true);
+        $data['wholesale'] = $this->url->link('information/wholesale', '', true);
+
 
 		$data['pinterest'] = $this->config->get('config_pinterest');
 		$data['yutube'] = $this->config->get('config_yutube');

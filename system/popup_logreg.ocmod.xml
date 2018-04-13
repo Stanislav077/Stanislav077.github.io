@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+<name>PopUp login/register</name>
+<code>PopUp login/register</code>
+<version>1.0</version>
+<author>sergey@oc-dev.ru</author>
+
+<file path="catalog/controller/common/footer.php">
+	<operation error="skip">
+	<search><![CDATA[ $data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time())); ]]></search>
+	<add position="after"><![CDATA[
+		$data['popup_logreg'] = $this->load->controller('module/popup_logreg/info');
+	]]></add>
+	</operation>
+</file>	
+</modification>

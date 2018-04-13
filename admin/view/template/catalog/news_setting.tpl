@@ -101,6 +101,19 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="form-group ">
+							<label class="col-sm-4 control-label"><?php echo 'Description'; ?></label>
+							<div class="col-sm-8">
+								<div class="row">
+									<div class="col-sm-4">
+										<textarea name="news_setting[description]" type="text"
+												  id="input-description" class="form-control" ><?php echo $description; ?> </textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

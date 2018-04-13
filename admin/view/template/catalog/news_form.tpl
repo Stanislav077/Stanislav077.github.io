@@ -129,6 +129,14 @@
 									<input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
 								</div>
 							</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Baner</label>
+									<div class="col-sm-10">
+										<a href="" id="thumb-image_ban" data-toggle="image" class="img-thumbnail">
+											<img src="<?php echo (!empty($thumb_ban) ? $thumb_ban : $placeholder); ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+										<input type="hidden" name="image_ban" value="<?php echo $image_ban; ?>" id="input-image_ban" />
+									</div>
+								</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="input-date-added"><?php echo $entry_date_added; ?></label>
 								<div class="col-sm-6">

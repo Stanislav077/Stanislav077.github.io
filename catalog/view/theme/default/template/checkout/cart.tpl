@@ -1,5 +1,62 @@
 <?php echo $header; ?>
 <div class="container">
+  <div class="breadcrumbs">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <a href="<?php echo $breadcrumb['href']; ?>" class="breadcrumbs__item"><?php echo $breadcrumb['text']; ?></a>
+    <?php } ?>
+  </div>
+</div>
+
+<div class="estore__content your-cart__content">
+  <div class="container">
+    <div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Home</a></div>
+    <div class="estore__head">
+      <div class="aqua__heading">Your cart</div>
+    </div>
+  </div>
+
+  <div class="your-cart">
+    <div class="container">
+      <div class="your-cart__cont">
+
+        <?php foreach ($products as $product) { ?>
+        <div class="your-cart__cont--item">
+          <div class="your-cart__cont--item--img">
+            <img src="<?php echo $product['thumb']; ?>" alt="">
+          </div>
+          <div class="your-cart__cont--item--cap">
+            <div class="your-cart__cont--item--cap--cap"><?=$product['name']; ?></div>
+            <div class="your-cart__cont--item--cap--size">
+              <?php if ($product['option']) { ?>
+              <?php foreach ($product['option'] as $option) { ?>
+
+              <?php echo $option['name']; ?>: <span><?php echo $option['value']; ?></span>
+              <?php } ?>
+              <?php } ?>
+            </div>
+          </div>
+          <div class="your-cart__cont--item--qual">
+            <div class="sale-main-val val-mob-dis">
+              <div class="sale-main-val-but-l"></div>
+              <?php echo $product['quantity']; ?>
+              <div class="sale-main-val-but-r"></div>
+            </div>
+          </div>
+          <div class="your-cart__cont--item--price">
+            <?php echo $product['total']; ?>
+          </div>
+          <div onclick="cart.remove('<?php echo $product['cart_id']; ?>');" class="your-cart__cont--item--close"></div>
+        </div>
+        <?php } ?>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="display: none" class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>

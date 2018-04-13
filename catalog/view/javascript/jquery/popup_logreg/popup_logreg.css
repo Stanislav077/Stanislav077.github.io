@@ -1,0 +1,165 @@
+.popup_visible #popuplogin, .popup_visible #popupregister {
+	transform: scale(1.0);
+	-o-transform: scale(1.0);
+	-moz-transform: scale(1.0);
+	-webkit-transform: scale(1.0);
+	text-align: center !important;
+}
+
+#popuplogin, #popupregister {
+	display:none;
+	background-color: #ffffff;
+	padding: 35px;
+	/*	padding:15px 19px;
+         border-radius:8px; */
+	box-shadow: 0 0 15px #555 !important;
+	text-align:center;
+	width: 100%;
+	max-width:700px;
+	transform: scale(0.4);
+	-o-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	-webkit-transform: scale(0.4);
+}
+div#popuplogin_form {
+	text-align: center;
+	max-width: 300px;
+	margin: 0 auto;
+}
+#popuplogin input[type=button],
+#popupregister input[type=button]
+{
+	width: 170px;
+	margin: 40px auto 0;
+}
+div#popupregister_form {
+	text-align: center;
+	max-width: 300px;
+	margin: 0 auto;
+}
+#popuplogin .head, #popupregister .head{
+/*	font-size: 16px !important;
+	font-weight:400 !important;
+	background:#eee;
+	background: linear-gradient(to bottom, #eee 0%, #ddd 100%);
+    color:#666;
+    margin:-18px -19px 20px;
+    padding:13px 19px 15px;
+    border-bottom:solid 1px #d2d2d2;
+    text-shadow: 1px 1px 0 #f8f8f8;
+    font-family:Verdana;
+    border-radius:8px 8px 0 0; */
+	color: #34495e;
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 40px;
+}
+
+#popuplogin .head .close, #popupregister .head .close{
+	position:absolute;
+	top:12px;
+	right:14px;
+	opacity: 1.0;
+	cursor:pointer;
+	padding:5px;
+	border-radius:4px;
+}
+
+#popuplogin .head .close:hover, #popupregister .head .close:hover{
+	background:#dedede;
+	box-shadow:inset 0 1px 1px #777, inset 0 -1px 1px #fff;;
+}
+
+#popuplogin .label, #popupregister .label{
+/*	display:inline-block;
+	vertical-align:middle;
+	text-align:left;
+	font-weight:400;
+	color:#666;
+	min-width:100px; */
+
+	color: #34495e;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 45px;
+	letter-spacing: .64px;
+	display: block;
+	text-align: left;
+}
+
+#popuplogin_form > div, #popupregister_form > div{
+	text-align:center;
+}
+
+#popuplogin_form > div + div, #popupregister_form > div + div{
+	margin:15px 0 0;
+}
+
+#popuplogin_form .result, #popupregister_form .result{
+	max-width:220px;
+}
+
+#popuplogin .result div, #popupregister .result div{
+	font-size:11px;
+	text-align:center;
+	margin: 10px 0 -5px;
+	color:#f00;
+}
+
+#popuplogin input[type='text'], input[type='password'], #popupregister input[type='text'], input[type='password']  {
+	/* width:200px;
+	box-sizing:border-box;
+	border:solid 1px #ccc;
+	padding:4px 10px;
+	border-radius:4px;
+	background:#fff !important;
+	box-shadow: inset 1px 1px 2px #e2e2e2;
+		box-shadow: inset 1px 1px 2px #e2e2e2;
+			border-radius: 4px;
+			border: solid 1px #ccc;
+	*/
+	width: 300px;
+	box-sizing: border-box;
+
+	padding: 4px 10px;
+
+	background: #fff !important;
+
+	height: 45px;
+	display: block;
+}
+#popuplogin input[type='text'], input[type='password'], #popupregister input[type='text'], input[type='password'] {
+	width: 100%;
+	max-width: 300px;
+	border: 1px solid #989898;
+	outline: 0;
+}
+
+#popuplogin .but, #popupregister .but{
+	margin: 19px 0 5px;
+	text-align:center;
+}
+
+#popuplogin .btn, #popupregister .btn {
+	padding:3px 14px 5px;
+}
+
+#popuplogin .forgotten, #popupregister .forgotten{
+	margin:12px 0 0;
+	text-align:center;
+	color:#999;
+}
+
+#popuplogin .forgotten a, #popupregister .forgotten a {
+	padding:0 8px 0 0;
+	font-size:11px;
+}
+
+#popuplogin .forgotten a + a{
+	margin:0 0 0 8px;
+	padding:0 !important;
+}
+#popupregister .error
+{
+	color: red;
+}

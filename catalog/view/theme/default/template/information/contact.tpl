@@ -1,5 +1,72 @@
 <?php echo $header; ?>
+
 <div class="container">
+  <div class="breadcrumbs">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <a href="<?php echo $breadcrumb['href']; ?>" class="breadcrumbs__item"><?php echo $breadcrumb['text']; ?></a>
+    <?php } ?>
+  </div>
+</div>
+<div class="contact__content">
+  <div class="container">
+    <div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Home</a></div>
+    <?php if(isset($text_sms)) { ?>
+    <div class="sucses_mass"><?=$text_sms?><span class="close_suc"></span></div>
+    <?php } ?>
+    <div class="contact__wrap">
+      <div class="contact__wrap--list">
+        <div class="aqua__heading">Contact</div>
+        <div class="footer-center-cont__item foot-cont-1">
+          <ul>
+            <li><a class="tel-foot" href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a></li>
+            <li><a class="mail-foot" href="mailto:<?=$ems?>"><?=$ems?></a></li>
+            <li><span class="adress-foot"> <?php echo $address; ?></span></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="contact__wrap--form">
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" >
+          <div class="cont__form">
+            <div class="cont__form--left">
+              <label for="namec">Name</label>
+              <input name="name" value="<?php echo $name; ?>" id="namec" type="text">
+              <?php if ($error_name) { ?>
+              <div class="text-danger"><?php echo $error_name; ?></div>
+              <?php } ?>
+              <label for="phonec">Phone</label>
+              <input name="telephone" class="tel" id="phonec" type="text">
+              <label for="mailc">E-mail address</label>
+              <input name="email" value="<?php echo $email; ?>" id="mailc" type="email">
+              <?php if ($error_email) { ?>
+              <div class="text-danger"><?php echo $error_email; ?></div>
+              <?php } ?>
+            </div>
+            <div class="cont__form--right">
+              <label for="textc">Message</label>
+              <textarea  name="enquiry" rows="10" id="textc"><?php echo $enquiry; ?></textarea>
+              <?php if ($error_enquiry) { ?>
+              <div class="text-danger"><?php echo $error_enquiry; ?></div>
+              <?php } ?>
+            </div>
+          </div>
+          <input type="submit" class="btn-white" value="Send">
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div style="display: none" class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -141,4 +208,21 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<script>
+$(document).ready(function () {
+    $('.close_suc').on('click',function () {
+        $('.sucses_mass').hide('slow',function () {
+            $('.sucses_mass').remove();
+        });
+
+    })
+
+    setTimeout(function() {
+        $('.sucses_mass').hide('slow',function () {
+            $('.sucses_mass').remove();
+        });
+    }, 5000);
+
+})
+</script>
 <?php echo $footer; ?>

@@ -145,10 +145,10 @@ $(document).delegate('#button-account', 'click', function() {
         url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').val(),
         dataType: 'html',
         beforeSend: function() {
-        	$('#button-account').button('loading');
+        //	$('#button-account').button('loading');
 		},
         complete: function() {
-			$('#button-account').button('reset');
+		//	$('#button-account').button('reset');
         },
         success: function(html) {
             $('.alert, .text-danger').remove();

@@ -1,10 +1,69 @@
 <?php echo $header; ?>
+
+
 <div class="container">
+	<div class="breadcrumbs">
+		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
+		<a href="<?php echo $breadcrumb['href']; ?>" class="breadcrumbs__item"><?php echo $breadcrumb['text']; ?></a>
+		<?php } ?>
+	</div>
+</div>
+
+<div class="estore__content">
+	<div class="container">
+		<div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Номе</a></div>
+		<div class="estore__head">
+			<div class="aqua__heading">Blog</div>
+			<div class="estore__head--text">
+<?php echo (isset($description_blog) ? $description_blog : "") ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="blog__list">
+		<div class="container">
+			<div class="article__list">
+				<?php if ($news_list) { ?>
+				<?php foreach ($news_list as $news_item) { ?>
+				<div class="article__list--item">
+					<?php if($news_item['thumb']) { ?>
+					<div class="article__list--item--img">
+
+						<img src="<?php echo $news_item['thumb']; ?>" alt="<?=$news_item['title']?>">
+					</div>
+					<?php } ?>
+					<div class="article__list--item--cap">
+						<a href="<?=$news_item['href']?>"><?=$news_item['title']?></a>
+					</div>
+					<div class="article__list--item--text">
+						<?=$news_item['description']?>
+						</div>
+					<div class="article__list--item--link">
+						<a href="<?=$news_item['href']?>" class="read-more" href="">Read more</a>
+					</div>
+				</div>
+<?php  } ?>
+				<?php  }else{ ?>
+				<p><?php echo $text_empty; ?></p>
+
+				<?php  } ?>
+
+			</div>
+			<?php echo $pagination; ?>
+		</div>
+	</div>
+
+</div>
+
+
+
+<div style="display: none" class="container">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
 		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
+
 	<div class="row"><?php echo $column_left; ?>
 		<?php if ($column_left && $column_right) { ?>
 		<?php $class = 'col-sm-6'; ?>
@@ -88,4 +147,5 @@
 		<?php echo $content_bottom; ?></div>
 	<?php echo $column_right; ?></div>
 </div>
+
 <?php echo $footer; ?>

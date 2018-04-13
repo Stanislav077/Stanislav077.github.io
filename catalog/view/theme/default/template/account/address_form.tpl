@@ -1,4 +1,6 @@
 <?php echo $header; ?>
+
+
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -286,6 +288,16 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript"><!--
 // Sort the custom fields
 $('.form-group[data-sort]').detach().each(function() {
@@ -417,4 +429,6 @@ $('select[name=\'country_id\']').on('change', function() {
 
 $('select[name=\'country_id\']').trigger('change');
 //--></script>
+
+
 <?php echo $footer; ?>
