@@ -196,7 +196,11 @@ class ModelAccountCustomer extends Model {
 
 		return $query->row;
 	}
+    public function getLoginAttempts1($email) {
+        $query = $this->db->query("SELECT c.salt, c.password FROM `" . DB_PREFIX . "customer` c WHERE email = '" . $this->db->escape(utf8_strtolower($email)) . "'");
 
+        return $query->row;
+    }
 	public function deleteLoginAttempts($email) {
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "customer_login` WHERE email = '" . $this->db->escape(utf8_strtolower($email)) . "'");
 	}

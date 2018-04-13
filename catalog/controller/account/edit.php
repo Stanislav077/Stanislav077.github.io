@@ -17,9 +17,20 @@ class ControllerAccountEdit extends Controller {
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
-		$this->load->model('account/customer');
+        $this->load->language('account/password');
+        $data['text_password'] = $this->language->get('text_password');
+        $data['entry_password'] = $this->language->get('entry_password');
+        $data['entry_confirm'] = $this->language->get('entry_confirm');
 
+        $this->load->model('account/customer');
+        $data['customers_as'] =$this->model_account_customer->getCustomer($this->customer->getId())['customer_group_id'];
+$data['custom_id'] = $this->customer->getId();
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+            $this->load->model('account/customer');
+
+            $this->model_account_customer->editPassword($this->customer->getEmail(), $this->request->post['password']);
+
+
 			$this->model_account_customer->editCustomer($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -36,8 +47,17 @@ class ControllerAccountEdit extends Controller {
 				$this->model_account_activity->addActivity('edit', $activity_data);
 			}
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+
+            $this->response->redirect($this->url->link('account/edit', '', true));
 		}
+
+        if (isset($this->session->data['success'])) {
+            $data['success'] = $this->session->data['success'];
+
+            unset($this->session->data['success']);
+        } else {
+            $data['success'] = '';
+        }
 
 		$data['breadcrumbs'] = array();
 
@@ -72,7 +92,32 @@ class ControllerAccountEdit extends Controller {
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
+        $data['logout'] = $this->url->link('account/logout', '', true);
+        if (isset($this->error['password'])) {
+            $data['error_password'] = $this->error['password'];
+        } else {
+            $data['error_password'] = '';
+        }
 
+        if (isset($this->error['confirm'])) {
+            $data['error_confirm'] = $this->error['confirm'];
+        } else {
+            $data['error_confirm'] = '';
+        }
+
+        $data['action'] = $this->url->link('account/password', '', true);
+
+        if (isset($this->request->post['password'])) {
+            $data['password'] = $this->request->post['password'];
+        } else {
+            $data['password'] = '';
+        }
+
+        if (isset($this->request->post['confirm'])) {
+            $data['confirm'] = $this->request->post['confirm'];
+        } else {
+            $data['confirm'] = '';
+        }
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
@@ -102,6 +147,12 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$data['error_telephone'] = '';
 		}
+
+        if (isset($this->error['oldspass'])) {
+            $data['oldspass'] = $this->error['oldspass'];
+        } else {
+            $data['oldspass'] = '';
+        }
 
 		if (isset($this->error['custom_field'])) {
 			$data['error_custom_field'] = $this->error['custom_field'];
@@ -195,7 +246,13 @@ class ControllerAccountEdit extends Controller {
 	/*	if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		} */
+        if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+            $this->error['password'] = $this->language->get('error_password');
+        }
 
+        if ($this->request->post['confirm'] != $this->request->post['password']) {
+            $this->error['confirm'] = $this->language->get('error_confirm');
+        }
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
@@ -207,6 +264,22 @@ class ControllerAccountEdit extends Controller {
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
+ if(!empty($this->request->post['oldpas'])){
+
+     $this->load->model('account/customer');
+     $data['test'] = $this->model_account_customer->getLoginAttempts1('admin@admin.ru');
+     $salt =$data['test']['salt'];
+     $password = $this->request->post['oldpas'];
+     $data['test']['testword'] =sha1($salt . sha1($salt . sha1($password)));
+     if($data['test']['password'] != $data['test']['testword']){
+         $this->error['oldspass'] = 'Passwords do not match';
+     }
+
+ }else{
+     $this->error['oldspass'] = 'Old password required field';
+ }
+
+
 
 		// Custom field validation
 		$this->load->model('account/custom_field');

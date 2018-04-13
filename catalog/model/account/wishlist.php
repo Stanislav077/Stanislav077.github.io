@@ -21,4 +21,18 @@ class ModelAccountWishlist extends Model {
 
 		return $query->row['total'];
 	}
+
+    public function getWishlistP($start = 0, $limit = 20) {
+        if ($start < 0) {
+            $start = 0;
+        }
+
+        if ($limit < 1) {
+            $limit = 1;
+        }
+
+        $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_wishlist` o  WHERE customer_id = '" . (int)$this->customer->getId() . "' LIMIT " . (int)$start . "," . (int)$limit);
+
+        return $query->rows;
+    }
 }

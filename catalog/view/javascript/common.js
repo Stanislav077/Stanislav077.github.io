@@ -357,7 +357,7 @@ var wishlist = {
 
 				$('#wishlist-total span').html(json['total']);
 				$('#wishlist-total').attr('title', json['total']);
-
+$('.header-main__cont--top--bas span.cyfbas2').html(json['total2'])
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 			},
 			error: function(xhr, ajaxOptions, thrownError) {

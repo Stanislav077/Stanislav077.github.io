@@ -15,6 +15,8 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
+
+
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
           <legend><?php echo $text_password; ?></legend>
@@ -44,6 +46,8 @@
           </div>
         </div>
       </form>
+
+
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>

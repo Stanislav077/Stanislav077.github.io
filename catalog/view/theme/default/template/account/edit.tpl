@@ -12,14 +12,23 @@
 
 <div class="estore__content profile-content">
   <div class="container">
-    <div class="go-back"><a href="#"><img src="img/icon/arrow-right-nav.png" alt="">Home</a></div>
+    <div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Home</a></div>
     <div class="estore__head">
       <div class="aqua__heading">Profile</div>
     </div>
   </div>
 
+
   <div class="product__content">
     <div class="container">
+
+      <?php if ($success) { ?>
+      <div class="anim">
+      <div class="success_ac alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+        <a onclick="return false" href="#">X</a>
+      </div>
+      </div>
+      <?php } ?>
       <div class="cont__product profile--product">
         <div class="cont__product--sidebar">
           <div class="estore__sidebar--cat--cat">
@@ -43,7 +52,7 @@
           <div class="profile--item--form">
             <div class="profile--item--form--maincap">
               <div>Your detalis</div>
-              <div><a href="#">Not Danny? Logout</a></div>
+              <div><a href="<?php echo $logout; ?>">Not <?=$firstname?>? Logout</a></div>
             </div>
           </div>
           <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" >
@@ -127,25 +136,66 @@
 
 
                   <div>
-                    <label for="Oldpassword222">Old password</label>
-                    <input type="password" id="Oldpassword222">
+                    <label for="Oldpassword222">Old password*</label>
+                    <input name="oldpas" type="password" id="Oldpassword222">
+                    <?php if ($oldspass) { ?>
+                    <div class="text-danger"><?php echo $oldspass; ?></div>
+                    <?php } ?>
                   </div>
 
                   <div>
-                    <label for="New22password">New password</label>
-                    <input type="password" id="New22password">
+                    <label for="New22password">New password*</label>
+                    <input  name="password" value="<?php echo $password; ?>" type="password" id="New22password">
+                    <?php if ($error_password) { ?>
+                    <div class="text-danger"><?php echo $error_password; ?></div>
+                    <?php } ?>
                   </div>
 
                   <div>
-                    <label for="ConfirmPassword222">Confirm Password</label>
-                    <input type="password" id="ConfirmPassword222">
+                    <label for="ConfirmPassword222">Confirm Password*</label>
+                    <input name="confirm" value="<?php echo $confirm; ?>" type="password" id="ConfirmPassword222">
+                    <?php if ($error_confirm) { ?>
+                    <div class="text-danger"><?php echo $error_confirm; ?></div>
+                    <?php } ?>
                   </div>
+
+
+
+
+
                   <input type="submit" value="save" class="btn-color btnfos-4">
 
 
               </div>
 
+</form>
+          <?php if($customers_as == 2) { ?>
+          <div class="prof-form-block--left">
+            <div class="prof-form-block--form--cap">
+              Download documents for account verification
+            </div>
+            <form id="documents" action="" method="post" enctype="multipart/form-data">
 
+              <div class="file-upload">
+                <label>
+                  <img src="style/img/down.png" alt="">
+                  <input type="file" name="file">
+
+                  <span>Download documents</span>
+                </label>
+                <input style="display: none" value="<?=$custom_id?>" type="text" name="id">
+              </div>
+
+              <div class="text-format">
+                *File format: doc, pdf Not more than 10 documents
+              </div>
+
+              <input id="button" type="submit" value="sent" class="btn-color btnfos-4">
+
+
+            </form>
+          </div>
+          <?php } ?>
 
             </div>
 
@@ -162,6 +212,59 @@
 </div>
 
 
+
+
+<script>
+  $(document).ready(function () {
+      $('.success_ac a').on('click',function () {
+          $('.success_ac').hide('slow');
+
+      })
+      setTimeout(function () {
+          $('.success_ac').animate({
+              left: '2500px',
+              opacity: '0',
+          }, 2000);
+          $('.success_ac').delay('50').fadeOut();
+      },3000);
+
+      $("#documents").submit(function() { return false; });
+
+      $("#button").on("click", function(){
+
+          var form = document.forms.documents;
+
+          var formData = new FormData(form);
+          //console.log(formData);
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/catalog/controller/uplodpost/project.php");
+
+          xhr.onreadystatechange = function() {
+            //  console.log(xhr.responseText)
+              if (xhr.readyState == 4) {
+                  if(xhr.status == 200) {
+                      data = xhr.responseText;
+                      $('#button').before('<p class="text_file">'+data+'</p>');
+setTimeout(function () {
+    $('.text_file').hide('slow',function () {
+        $('.text_file').remove();
+    })
+
+},3000)
+                  }
+              }
+          };
+
+          xhr.send(formData);
+
+      })
+
+
+  })
+
+
+
+</script>
 
 <script type="text/javascript"><!--
 // Sort the custom fields

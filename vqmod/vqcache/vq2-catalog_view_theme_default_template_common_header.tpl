@@ -149,6 +149,7 @@
             <a href="#modal2">Sign in</a>
           </div>
           <?php if(isset($customer_id)) { ?>
+
           <div class="header-main__cont--top--profile">
             <a onclick="return false;" href="#">Profile</a>
 
@@ -165,6 +166,7 @@
             </div>
 
           </div>
+
           <?php }else{ ?>
           <div class="header-main__cont--top--profile">
             <a onclick="return false;" href="#">Profile</a>
@@ -244,10 +246,12 @@
               <?=$cart?>
             </div>
 
-
+            <?php if(isset($customer_id)) { ?>
             <div class="header-main__cont--top--bas">
-
+              <a href="<?=$wishlist_linck?>"><img src="style/img/icon/heart.png" alt=""></a>
+              <span class="cyfbas2"><?=$wishlist_col?></span>
             </div>
+       <?php } ?>
 
             <div class="header-main__cont--top--sign">
               <a href="#"></a>

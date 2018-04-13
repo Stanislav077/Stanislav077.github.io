@@ -198,6 +198,7 @@
           <?php } else { ?>
           <p><?php echo $text_empty; ?></p>
           <?php } ?>
+          <?=$pagination?>
         </div>
 
       </div>
