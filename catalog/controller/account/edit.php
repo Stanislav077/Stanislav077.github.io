@@ -25,6 +25,38 @@ class ControllerAccountEdit extends Controller {
         $this->load->model('account/customer');
         $data['customers_as'] =$this->model_account_customer->getCustomer($this->customer->getId())['customer_group_id'];
 $data['custom_id'] = $this->customer->getId();
+
+$dir_path = DIR_UPLOADS;
+
+//        $filelist = array();
+//        if ($handle = opendir($dir_path . 'customer_'.$data['custom_id'])) {
+//            while ($entry = readdir($handle)) {
+//                if (is_file($entry)) {
+//                    $filelist[] = $entry;
+//                }
+//            }
+//            closedir($handle);
+//        }
+
+        function getSimpleFilesList($dirpath) {
+            $result = array();
+
+            $cdir = scandir($dirpath);
+            foreach ($cdir as $value) {
+                // если это "не точки" и не директория
+                if (!in_array($value,array(".", ".."))
+                    && !is_dir($dirpath . DIRECTORY_SEPARATOR . $value)) {
+
+                    $result[] = $value;
+                }
+            }
+
+            return $result;
+        }
+$data['tttt'] = DIR_UPLOADS;
+
+$data['filelist'] = getSimpleFilesList($dir_path. 'customer_'.$data['custom_id']);
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
             $this->load->model('account/customer');
 
@@ -296,4 +328,39 @@ $data['custom_id'] = $this->customer->getId();
 
 		return !$this->error;
 	}
+
+    public function getfiles() {
+        $json = array();
+
+        $this->load->model('localisation/country');
+
+        $this->load->model('account/customer');
+        $data['customers_as'] =$this->model_account_customer->getCustomer($this->customer->getId())['customer_group_id'];
+        $data['custom_id'] = $this->customer->getId();
+
+        $dir_path = DIR_UPLOADS;
+
+
+        function getSimpleFilesList($dirpath) {
+            $result = array();
+
+            $cdir = scandir($dirpath);
+            foreach ($cdir as $value) {
+                // если это "не точки" и не директория
+                if (!in_array($value,array(".", ".."))
+                    && !is_dir($dirpath . DIRECTORY_SEPARATOR . $value)) {
+
+                    $result[] = $value;
+                }
+            }
+
+            return $result;
+        }
+
+
+        $json['filelist'] = getSimpleFilesList($dir_path. 'customer_'.$data['custom_id']);
+
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
+    }
 }

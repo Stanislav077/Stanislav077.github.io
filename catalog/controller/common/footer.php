@@ -20,6 +20,7 @@ class ControllerCommonFooter extends Controller {
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
         $data['prom'] = $this->url->link('information/promotion', '', true);
+        $data['policy'] = $this->url->link('information/information', 'information_id=3', true);
 
 		$this->load->model('catalog/information');
 

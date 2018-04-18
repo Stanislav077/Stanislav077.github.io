@@ -1066,3 +1066,24 @@ form .error,
 {
 	overflow: hidden;
 }
+
+
+div#maincontent {
+	width: 100%;
+}
+.header-main__cont--bottom .estore a.active,
+.header-main__cont--bottom .estore a.active:hover
+{
+	color: #5b86e5;
+}
+
+@media only screen and (min-width: 641px)
+{
+	.remodal.fish_ban {
+		max-width: 1110px;
+	}
+}
+#documents .text-format
+{
+	width:280px;
+}

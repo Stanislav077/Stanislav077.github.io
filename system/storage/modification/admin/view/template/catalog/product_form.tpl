@@ -31,12 +31,12 @@
             <li><a href="#tab-links" data-toggle="tab"><?php echo $tab_links; ?></a></li>
             <li><a href="#tab-attribute" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
             <li><a href="#tab-option" data-toggle="tab"><?php echo $tab_option; ?></a></li>
-            <li><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li>
-            <li><a href="#tab-discount" data-toggle="tab"><?php echo $tab_discount; ?></a></li>
+            <li class="hide"><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li>
+            <li class="hide"><a href="#tab-discount" data-toggle="tab"><?php echo $tab_discount; ?></a></li>
             <li><a href="#tab-special" data-toggle="tab"><?php echo $tab_special; ?></a></li>
             <li><a href="#tab-image" data-toggle="tab"><?php echo $tab_image; ?></a></li>
-            <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
-            <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
+            <li class="hide"><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
+            <li class="hide"><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
@@ -154,12 +154,26 @@
 
 			  </div>
 		
-              <div class="form-group">
+              <div class="form-group hide">
                 <label class="col-sm-2 control-label" for="input-location"><?php echo $entry_location; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="location" value="<?php echo $location; ?>" placeholder="<?php echo $entry_location; ?>" id="input-location" class="form-control" />
                 </div>
               </div>
+
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Compatibility fish</label>
+                <div class="col-sm-10">
+                  <a href="" id="thumb-image_fish" data-toggle="image" class="img-thumbnail">
+                    <img src="<?php echo $thumb_fish; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" />
+                  </a>
+                  <input type="hidden" name="image_fish" value="<?php echo $image_fish; ?>" id="input-image_fish" />
+                </div>
+              </div>
+
+
+
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_price; ?></label>
                 <div class="col-sm-10">
@@ -248,6 +262,65 @@
                 <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_keyword; ?>" id="input-keyword" class="form-control" />
+
+
+<input type="button" class="btn btn-primary" id="SEO_URL_GENERATOR" value="SEO URL GENERATOR" style="margin-top: 5px;" />
+                  <script type="text/javascript">
+                        function getSeoUrlGenerator(seo_url_generator,autogenerator){
+                            $.ajax({
+                                    url: 'index.php?route=module/seourlgenerator/seourlgenerateajax&token=<?php echo $token; ?>',
+                                    type: 'post',
+                                    dataType: 'html',
+                                    data: 'autogenerator='+autogenerator+'&id=<?php if(isset($_GET['product_id'])){ echo $_GET['product_id']; }else{ echo "0"; } ?>&query_part=product_id&name='+encodeURIComponent(seo_url_generator),
+                                    beforeSend: function() {
+                                    },
+                                    complete: function() {
+                                    },
+                                    success: function(response) {
+                                    
+                                        if(response!=''){
+                                            $("#input-keyword").val(response);
+                                        }
+                                    }
+                            });
+                        }
+                        $(document).ready(function() {
+                            var lastSeoUrl = $("#input-keyword").val();
+                            var configLanguageId = getConfigLanguageId();
+                            //Если при загрузке странице SEO URL уже есть, то менять его нельзя, без подтверждения юзера
+                            //Для этого есть кнопка генерации
+                            if(lastSeoUrl==''){
+                                $( "input[name='product_description["+configLanguageId+"][name]']" ).change(function() {
+                                    getSeoUrlGenerator(this.value,0);
+                                });
+                            }
+                        });
+                        
+                        function getConfigLanguageId(){
+                            
+                            response = $.ajax({
+                                    url: 'index.php?route=module/seourlgenerator/getConfigLanguageId&token=<?php echo $token; ?>',
+                                    type: 'post',
+                                    dataType: 'html',
+                                    data: '',
+                                    async: false
+                            }).responseText;
+                            
+                            return response;
+                            
+                        }
+                        
+                        $( "#SEO_URL_GENERATOR" ).click(function() {
+                            var configLanguageId = getConfigLanguageId();
+                            var nameContent = $( "input[name='product_description["+configLanguageId+"][name]']" ).val();
+                            if(nameContent==''){
+                                alert('Сначала создайте название. Невозможно сгенерировать SEO URL без названия');
+                                return;
+                            }else{
+                                getSeoUrlGenerator(nameContent,1);
+                            }
+                        });
+                  </script>
                   <?php if ($error_keyword) { ?>
                   <div class="text-danger"><?php echo $error_keyword; ?></div>
                   <?php } ?>
@@ -335,7 +408,7 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-links">
-              <div class="form-group">
+              <div class="form-group hide">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="<?php echo $help_manufacturer; ?>"><?php echo $entry_manufacturer; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="manufacturer" value="<?php echo $manufacturer; ?>" placeholder="<?php echo $entry_manufacturer; ?>" id="input-manufacturer" class="form-control" />
@@ -355,7 +428,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hide">
                 <label class="col-sm-2 control-label" for="input-filter"><span data-toggle="tooltip" title="<?php echo $help_filter; ?>"><?php echo $entry_filter; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="filter" value="" placeholder="<?php echo $entry_filter; ?>" id="input-filter" class="form-control" />
@@ -368,7 +441,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hide">
                 <label class="col-sm-2 control-label"><?php echo $entry_store; ?></label>
                 <div class="col-sm-10">
                   <div class="well well-sm" style="height: 150px; overflow: auto;">
@@ -400,9 +473,9 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-download"><span data-toggle="tooltip" title="<?php echo $help_download; ?>"><?php echo $entry_download; ?></span></label>
+                <label class="col-sm-2 control-label" for="input-download"><span data-toggle="tooltip" title="<?php echo $help_download; ?>"><?php echo 'Blog Add'; ?></span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="download" value="" placeholder="<?php echo $entry_download; ?>" id="input-download" class="form-control" />
+                  <input type="text" name="download" value="" placeholder="<?php echo 'Blog Add'; ?>" id="input-download" class="form-control" />
                   <div id="product-download" class="well well-sm" style="height: 150px; overflow: auto;">
                     <?php foreach ($product_downloads as $product_download) { ?>
                     <div id="product-download<?php echo $product_download['download_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_download['name']; ?>
@@ -1027,10 +1100,17 @@ $('#product-filter').delegate('.fa-minus-circle', 'click', function() {
 });
 
 // Downloads
+
+  var col_down = $('#product-download >div').length;
+  if(col_down >= 3)
+      {
+          $('#input-download').attr('disabled','disabled')
+      }
+
 $('input[name=\'download\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
-			url: 'index.php?route=catalog/download/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+			url: 'index.php?route=catalog/download/autocompleteblog&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
 			dataType: 'json',
 			success: function(json) {
 				response($.map(json, function(item) {
@@ -1048,11 +1128,24 @@ $('input[name=\'download\']').autocomplete({
 		$('#product-download' + item['value']).remove();
 
 		$('#product-download').append('<div id="product-download' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_download[]" value="' + item['value'] + '" /></div>');
+
+        var col_down = $('#product-download >div').length;
+        if(col_down >= 3)
+        {
+            $('#input-download').attr('disabled','disabled')
+        }
+
+
 	}
 });
 
 $('#product-download').delegate('.fa-minus-circle', 'click', function() {
 	$(this).parent().remove();
+    var col_down = $('#product-download >div').length;
+    if(col_down < 3)
+    {
+        $('#input-download').removeAttr('disabled');
+    }
 });
 
 // Related

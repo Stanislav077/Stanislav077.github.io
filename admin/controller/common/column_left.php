@@ -59,7 +59,7 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
-			if ($this->user->hasPermission('access', 'catalog/recurring')) {
+	/*		if ($this->user->hasPermission('access', 'catalog/recurring')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_recurring'),
 					'href'     => $this->url->link('catalog/recurring', 'token=' . $this->session->data['token'], true),
@@ -74,7 +74,7 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
-			
+            */
 			// Attributes
 			$attribute = array();
 			
@@ -110,14 +110,14 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
-			if ($this->user->hasPermission('access', 'catalog/manufacturer')) {
+		/*	if ($this->user->hasPermission('access', 'catalog/manufacturer')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_manufacturer'),
 					'href'     => $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'], true),
 					'children' => array()		
 				);
 			}
-			
+
 			if ($this->user->hasPermission('access', 'catalog/download')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_download'),
@@ -125,7 +125,7 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
-			
+            */
 			if ($this->user->hasPermission('access', 'catalog/review')) {		
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_review'),
@@ -178,6 +178,20 @@ class ControllerCommonColumnLeft extends Controller {
                 $catalog[] = array(
                     'name'	   => 'Block about to home',
                     'href'     => $this->url->link('catalog/about_home', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'catalog/reviewabout')) {
+                $catalog[] = array(
+                    'name'	   => 'Review About',
+                    'href'     => $this->url->link('catalog/reviewabout', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'catalog/abouthomes')) {
+                $catalog[] = array(
+                    'name'	   => 'What we do',
+                    'href'     => $this->url->link('catalog/abouthomes', 'token=' . $this->session->data['token'], true),
                     'children' => array()
                 );
             }

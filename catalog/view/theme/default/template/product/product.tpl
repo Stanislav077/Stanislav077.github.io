@@ -256,36 +256,65 @@
 
 
 
-          <div class="card-item__compability"><img src="style/img/two-fishes.png" alt="">Compatibility fish</div>
+          <div class="card-item__compability">
+            <?php if($popup_fish) { ?>
+            <a data-remodal-target="modal77">
+            <img src="style/img/two-fishes.png" alt="">Compatibility fish
+            </a>
+            <?php } ?>
+          </div>
+
           <div class="card-item__block">
+            <?php if ($attribute_groups) { ?>
             <div class="card-item__subheading">QUICK STATS:</div>
             <div class="card-item__stats">
-              <a href="" class="card-item__stat"><img src="style/img/stat1.png" alt=""><span>Seawater</span></a>
-              <a href="" class="card-item__stat"><img src="style/img/stat2.png" alt=""><span>Predatory fish</span></a>
-              <a href="" class="card-item__stat"><img src="style/img/stat3.png" alt=""><span>Care Level: Easy</span></a>
-              <a href="" class="card-item__stat"><img src="style/img/stat4.png" alt=""><span>Min. 30 gallons</span></a>
+              <?php foreach ($attribute_groups as $attribute_group) { ?>
+              <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+
+              <a onclick="return false"  class="card-item__stat">
+                  <?php if($attribute['image']) { ?>
+                  <img src="<?=$attribute['image']?>" alt="">
+                  <?php } ?>
+                  <span><?php echo $attribute['name']; ?>  <?php echo $attribute['text']; ?></span></a>
+              <?php } ?>
+
+              <?php } ?>
             </div>
+
+            <?php } ?>
           </div>
+
           <div class="card-item__block">
+            <?php if($description) { ?>
             <div class="card-item__subheading">Description:</div>
             <div class="card-item__text">
           <?=$description?>
             </div>
+            <?php } ?>
           </div>
           <div class="card-item__row-fs card-item__row-fs2">
+
+            <?php if($blogs) { ?>
             <img src="style/img/blog.png" class="card-item__blog-image" alt="">
+
+
             <div class="card-item__subheading">Read in our blog:</div>
             <div class="card-item__blogs">
-              <a href="" class="card-item__blog">Finding Dory in your Home</a>
-              <a href="" class="card-item__blog">Guide to Aquatic Success</a>
-              <a href="" class="card-item__blog">Five Surprising Facts About
-                Your New Saltwater Fish</a>
+<?php  foreach($blogs as $blog) { ?>
+              <a href="<?=$blog['href']?>" class="card-item__blog"><?=$blog['title']?></a>
+
+
+<?php } ?>
             </div>
+
+<?php } ?>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
   <?php if($products) { ?>
   <div class="main-sale">
     <div class="aqua__heading2">
@@ -378,7 +407,7 @@
 
                 <?php if ($option['type'] == 'radio'&& $option['val']==$product['product_id']) { ?>
 
-                <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size">
+                <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size <?=$option['name']?>">
                   <div class="main-sale__slider--item--size--cap">
                     <?php echo $option['name']; ?>
                   </div>
@@ -540,7 +569,7 @@
 
                 <?php if ($option['type'] == 'checkbox' && $option['val']==$product['product_id']) { ?>
 
-                <div class="main-sale__slider--item--size main-sale__slider--item--size-color">
+                <div class="main-sale__slider--item--size main-sale__slider--item--size ">
                   <div class="card-item__colors">
 
                     <div class="card-item__colors--text"> <?php echo $option['name']; ?></div>
@@ -567,7 +596,7 @@
 
                 <?php if ($option['type'] == 'radio'&& $option['val']==$product['product_id']) { ?>
 
-                <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size">
+                <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size <?=$option['name']?>">
                   <div class="main-sale__slider--item--size--cap">
                     <?php echo $option['name']; ?>
                   </div>
@@ -629,6 +658,24 @@
   </div>
   <?php } ?>
 </div>
+
+
+
+
+
+<div class="remodal fish_ban" data-remodal-id="modal77">
+  <button data-remodal-action="close" class="remodal-close"></button>
+
+
+  <img src="<?=$popup_fish?>" />
+
+</div>
+
+
+
+
+
+
 
 <div class="remodal" data-remodal-id="modal1">
   <button data-remodal-action="close" class="remodal-close"></button>

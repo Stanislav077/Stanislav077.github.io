@@ -362,6 +362,23 @@ class ControllerCatalogAttribute extends Controller {
 			$data['sort_order'] = '';
 		}
 
+        if (isset($this->request->post['image'])) {
+            $data['image'] = $this->request->post['image'];
+        } elseif (!empty($attribute_info)) {
+            $data['image'] = $attribute_info['image'];
+        } else {
+            $data['image'] = '';
+        }
+        $this->load->model('tool/image');
+
+        if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
+            $data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
+        } elseif (!empty($attribute_info) && is_file(DIR_IMAGE . $attribute_info['image'])) {
+            $data['thumb'] = $this->model_tool_image->resize($attribute_info['image'], 100, 100);
+        } else {
+            $data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');

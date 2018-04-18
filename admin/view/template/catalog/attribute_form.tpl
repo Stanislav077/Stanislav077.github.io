@@ -38,6 +38,15 @@
               <?php } ?>
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Icon</label>
+            <div class="col-sm-10">
+              <a href="" id="thumb-image" data-toggle="image" class="img-thumbnail">
+                <img src="<?php echo (!empty($thumb) ? $thumb : $placeholder); ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+              <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-attribute-group"><?php echo $entry_attribute_group; ?></label>
             <div class="col-sm-10">

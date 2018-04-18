@@ -32,6 +32,13 @@ class ControllerStartupSeoUrl extends Controller {
 							$this->request->get['path'] .= '_' . $url[1];
 						}
 					}
+                    if ($url[0] == 'cat_prod_id') {
+                        if (!isset($this->request->get['cat_prod_id'])) {
+                            $this->request->get['cat_prod_id'] = $url[1];
+                        } else {
+                            $this->request->get['cat_prod_id'] .= '_' . $url[1];
+                        }
+                    }
 
 					if ($url[0] == 'manufacturer_id') {
 						$this->request->get['manufacturer_id'] = $url[1];
@@ -41,7 +48,7 @@ class ControllerStartupSeoUrl extends Controller {
 						$this->request->get['information_id'] = $url[1];
 					}
 
-					if ($query->row['query'] && $url[0] != 'information_id' && $url[0] != 'manufacturer_id' && $url[0] != 'category_id' && $url[0] != 'product_id') {
+					if ($query->row['query'] && $url[0] != 'information_id' && $url[0] != 'manufacturer_id' && $url[0] != 'category_id'&& $url[0] != 'cat_prod_id' && $url[0] != 'product_id') {
 						$this->request->get['route'] = $query->row['query'];
 					}
 				} else {
@@ -56,7 +63,9 @@ class ControllerStartupSeoUrl extends Controller {
 					$this->request->get['route'] = 'product/product';
 				} elseif (isset($this->request->get['path'])) {
 					$this->request->get['route'] = 'product/category';
-				} elseif (isset($this->request->get['manufacturer_id'])) {
+				} elseif (isset($this->request->get['cat_prod_id'])) {
+                    $this->request->get['route'] = 'product/catprod';
+                }elseif (isset($this->request->get['manufacturer_id'])) {
 					$this->request->get['route'] = 'product/manufacturer/info';
 				} elseif (isset($this->request->get['information_id'])) {
 					$this->request->get['route'] = 'information/information';
@@ -68,7 +77,7 @@ class ControllerStartupSeoUrl extends Controller {
 			if (isset($this->request->get['route'])) {
 				return new Action($this->request->get['route']);
 			}
-			
+
 		  // Redirect 301	
 		} elseif (isset($this->request->get['route']) && empty($this->request->post) && !isset($this->request->get['token']) && $this->config->get('config_seo_url')) {
 			$arg = '';
@@ -90,20 +99,42 @@ class ControllerStartupSeoUrl extends Controller {
 						break;
 					}
 				}
+
+
 				$arg = trim($cat_path, '/');
 				if (isset($this->request->get['page'])) $arg = $arg . '?page=' . (int)$this->request->get['page'];
-			} elseif ($this->request->get['route'] == 'product/manufacturer/info' && isset($this->request->get['manufacturer_id'])) {
+			}elseif ($this->request->get['route'] == 'product/catprod' && isset($this->request->get['cat_prod_id'])) {
+                $categorys_id = explode('_', $this->request->get['cat_prod_id']);
+                $cat_path = '';
+                foreach ($categorys_id as $category_id) {
+                    $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'cat_prod_id=" . (int)$category_id . "'");
+                    if ($query->num_rows && $query->row['keyword'] /**/ ) {
+                        $cat_path .= '/' . $query->row['keyword'];
+                    } else {
+                        $cat_path = false;
+                        break;
+                    }
+                }
+
+
+                $arg = trim($cat_path, '/');
+                if (isset($this->request->get['page'])) $arg = $arg . '?page=' . (int)$this->request->get['page'];
+            } elseif ($this->request->get['route'] == 'product/manufacturer/info' && isset($this->request->get['manufacturer_id'])) {
 				$this->request->get['route'] = 'manufacturer_id=' . $this->request->get['manufacturer_id'];
 				if (isset($this->request->get['page'])) $arg = $arg . '?page=' . (int)$this->request->get['page'];
 			} elseif ($this->request->get['route'] == 'information/information' && isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information_id=' . $this->request->get['information_id'];
-			} elseif (sizeof($this->request->get) > 1) {
+			}
+		//	elseif($this->request->get['route'] == 'product/catprod' && isset($this->request->get['cat_prod_id'])){
+        //        $this->request->get['route'] = 'cat_prod_id=' . $this->request->get['cat_prod_id'];
+        //    }
+            elseif (sizeof($this->request->get) > 1) {
 				$args = '?' . str_replace("route=" . $this->request->get['route'].'&amp;', "", $this->request->server['QUERY_STRING']);
 				$arg = str_replace('&amp;', '&', $args);
 			}
 
 			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE query = '" . $this->db->escape($this->request->get['route']) . "'");
-			
+
 			if ($query->num_rows && $query->row['keyword']) /**/ {
 				$this->response->redirect($query->row['keyword'] . $arg, 301);
 			} elseif ($cat_path) {
@@ -125,7 +156,7 @@ class ControllerStartupSeoUrl extends Controller {
 
 		foreach ($data as $key => $value) {
 			if (isset($data['route'])) {
-				if (($data['route'] == 'product/product' && $key == 'product_id') || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
+				if (($data['route'] == 'product/product' && $key == 'product_id')  || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
 					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
 
 					if ($query->num_rows && $query->row['keyword']) {
@@ -149,7 +180,23 @@ class ControllerStartupSeoUrl extends Controller {
 					}
 
 					unset($data[$key]);
-				} elseif ($key == 'route') {
+				} elseif ($key == 'cat_prod_id') {
+                    $categoriesc = explode('_', $value);
+
+                    foreach ($categoriesc as $category) {
+                        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'cat_prod_id=" . (int)$category . "'");
+
+                        if ($query->num_rows && $query->row['keyword']) {
+                            $url .= '/' . $query->row['keyword'];
+                        } else {
+                            $url = '';
+
+                            break;
+                        }
+                    }
+
+                    unset($data[$key]);
+                } elseif ($key == 'route') {
 					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($data['route']) . "'");
 					if ($query->num_rows) /**/ {
 						$url .= '/' . $query->row['keyword'];

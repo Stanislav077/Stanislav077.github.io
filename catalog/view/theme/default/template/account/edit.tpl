@@ -188,6 +188,20 @@
 
               <div class="text-format">
                 *File format: doc, pdf Not more than 10 documents
+
+                <pre style="display: none">
+                <?php print_r($filelist); ?>
+                <?php print_r($tttt); ?>
+                </pre>
+
+<?php if($filelist) { ?>
+                <ul class="list_file">
+                <?php foreach($filelist as $filelists) { ?>
+                  <li><?=$filelists?></li>
+                <?php } ?>
+                </ul>
+                <?php } ?>
+
               </div>
 
               <input id="button" type="submit" value="sent" class="btn-color btnfos-4">
@@ -251,6 +265,38 @@ setTimeout(function () {
     })
 
 },3000)
+                      $.ajax({
+                          url: 'index.php?route=account/edit/getfiles',
+                          type: 'post',
+                          dataType: 'json',
+
+                          success: function(json) {
+             //  console.log(json['filelist']);
+               console.log(json['filelist'].length);
+var cols =json['filelist'].length;
+var ik =0;
+if(cols < 10) {
+    $('.list_file li').remove();
+
+
+               while(ik<cols){
+                   $('.list_file').append('<li>'+json['filelist'][ik]+'</li>');
+                  // console.log(json['filelist'][ik])
+
+                   ik++;
+               }
+
+                          }
+
+                          },
+                          error: function(xhr, ajaxOptions, thrownError) {
+                              alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                          }
+                      });
+
+
+
+
                   }
               }
           };

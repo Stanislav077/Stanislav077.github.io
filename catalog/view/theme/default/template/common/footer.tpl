@@ -60,7 +60,7 @@
           </div>
           <ul>
             <li><a href="<?=$prom?>">Promotions</a></li>
-            <li><a href="#">Our policy</a></li>
+            <li><a href="<?=$policy?>">Our policy</a></li>
             <li><a href="<?=$wholesale?>">Wholesale</a></li>
           </ul>
           <div class="foot-cont-1__cap foot-cont-2__cap">
@@ -91,8 +91,8 @@
       <div class="footer-bottom-line__item">AquadesignPRO 2018 (c.) All Rights Reserved
         <!-- <a class="our" href="#">Our policy</a> --></div>
       <div class="footer-bottom-line__item">
-        <a href="http://masgroup.com.ua" target="_blank"><img src="style/img/maslogo.png" alt="">
-          Website development and promotion</a>
+       <!--  <a href="http://masgroup.com.ua" target="_blank"><img src="style/img/maslogo.png" alt="">
+          Website development and promotion</a> -->
       </div>
     </div>
   </div>
@@ -170,5 +170,6 @@
 
 </body>
 <link href="style/css/main.css" rel="stylesheet">
+<link href="style/css/dev.css" rel="stylesheet">
 <script async  src="style/js/main.js" type="text/javascript"></script>
 </html>

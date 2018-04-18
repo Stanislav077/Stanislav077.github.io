@@ -166,6 +166,16 @@ class ControllerInformationContact extends Controller {
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
+
+                
+                //OCEXT SEO URL GENERATOR - microdata
+                $this->load->model('module/seourlgenerator');
+                if(isset($data)){
+                    $this->model_module_seourlgenerator->addScript($data);
+                }
+                //end OCEXT SEO URL GENERATOR - microdata
+
+
 		$data['header'] = $this->load->controller('common/header');
 
 		$this->response->setOutput($this->load->view('information/contact', $data));
@@ -294,6 +304,16 @@ $data['text_sms']='Your message has been sent!';
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
+
+                
+                //OCEXT SEO URL GENERATOR - microdata
+                $this->load->model('module/seourlgenerator');
+                if(isset($data)){
+                    $this->model_module_seourlgenerator->addScript($data);
+                }
+                //end OCEXT SEO URL GENERATOR - microdata
+
+
 		$data['header'] = $this->load->controller('common/header');
 
 		$this->response->setOutput($this->load->view('information/contact', $data));

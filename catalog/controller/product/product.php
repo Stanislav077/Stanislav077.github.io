@@ -290,6 +290,12 @@ class ControllerProductProduct extends Controller {
 				$data['popup'] = '';
 			}
 
+            if ($product_info['image_fish']) {
+                $data['popup_fish'] = $this->model_tool_image->resize($product_info['image_fish'], 1100, 642);
+            } else {
+                $data['popup_fish'] = '';
+            }
+
 			if ($product_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
 			} else {
@@ -405,9 +411,32 @@ class ControllerProductProduct extends Controller {
 
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
+
+
+
 			$data['products'] = array();
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
+            $results_blogs = $this->model_catalog_product->getProductDownloads($this->request->get['product_id']);
+            $data['test'] = $results_blogs;
+$data['blogs'] = array();
+if(isset($results_blogs)&& !empty($results_blogs)) {
+
+    foreach ($results_blogs as $results_blog)
+    {
+        $blogs[] = $this->model_catalog_product->getBlog($results_blog);
+
+    }
+    foreach ($blogs as $blog)
+    {
+        $data['blogs'][]=array(
+            'title' =>$blog['title'],
+            'href' => $this->url->link('information/news/info', 'news_id=' . $blog['news_id'])  //$blog['title'] info&news_id=1
+        );
+    }
+}
+
+
 
 			foreach ($results as $result) {
 				if ($result['image']) {

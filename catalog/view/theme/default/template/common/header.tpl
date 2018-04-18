@@ -49,17 +49,18 @@
 
 
 <header>
-
+<?php if($baners) { ?>
   <div class="header-top-line">
     <div class="container" >
       <div class="slider-rec">
-        <a href="">Free shiping on Articial Coral order $99 and up</a>
-        <a href="">Free shiping on Articial Coral order $99 and up</a>
-        <a href="">Free shiping on Articial Coral order $99 and up</a>
+          <?php foreach($baners as $baner) { ?>
+        <a href="<?=$baner['link']?>"><?=$baner['title']?></a>
+<?php } ?>
       </div>
       <div class="slider-rec-close"></div>
     </div>
   </div>
+<?php } ?>
 
   <div class="container">
     <div class="header-main">
@@ -116,7 +117,7 @@
         <div class="header-main__cont--bottom">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="<?=$informations[0]['href']?>">About us</a></li>
+            <li ><a href="<?=$informations[0]['href']?>">About us</a></li>
             <li class="estore"><a href="<?=$estore?>">E-Store</a>
               <div class="products__sub">
                 <ul>

@@ -95,7 +95,7 @@ $_['help_stock_status']      = 'Status shown when a product is out of stock';
 $_['help_points']            = 'Number of points needed to buy this item. If you don\'t want this product to be purchased with points leave as 0.';
 $_['help_category']          = '(Autocomplete)';
 $_['help_filter']            = '(Autocomplete)';
-$_['help_download']          = '(Autocomplete)';
+$_['help_download']          = 'Not more than three!!! (Autocomplete)';
 $_['help_related']           = '(Autocomplete)';
 $_['help_tag']               = 'Comma separated';
 

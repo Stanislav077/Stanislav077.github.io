@@ -8,7 +8,9 @@ class ModelCatalogAttribute extends Model {
 		foreach ($data['attribute_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "attribute_description SET attribute_id = '" . (int)$attribute_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "'");
 		}
-
+        if (isset($data['image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "attribute SET image = '" . $this->db->escape($data['image']) . "' WHERE attribute_id = '" . (int)$attribute_id . "'");
+        }
 		return $attribute_id;
 	}
 
@@ -20,6 +22,9 @@ class ModelCatalogAttribute extends Model {
 		foreach ($data['attribute_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "attribute_description SET attribute_id = '" . (int)$attribute_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "'");
 		}
+        if (isset($data['image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "attribute SET image = '" . $this->db->escape($data['image']) . "' WHERE attribute_id = '" . (int)$attribute_id . "'");
+        }
 	}
 
 	public function deleteAttribute($attribute_id) {

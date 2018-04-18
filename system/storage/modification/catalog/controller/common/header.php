@@ -26,6 +26,17 @@ class ControllerCommonHeader extends Controller {
 
 		$data['title'] = $this->document->getTitle();
 
+                
+                //OCEXT SEO URL GENERATOR - microdata
+                $this->load->model('module/seourlgenerator');
+                $microdataseourlgenerator = $this->model_module_seourlgenerator->getScript();
+                if($microdataseourlgenerator){
+                    $data['analytics'][] = $microdataseourlgenerator;
+                }
+                //end OCEXT SEO URL GENERATOR - microdata
+
+
+
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
@@ -44,6 +55,7 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		$this->load->language('common/header');
+
 
 		$data['text_home'] = $this->language->get('text_home');
 $data['customer_id'] = $this->customer->isLogged();
@@ -72,6 +84,15 @@ $data['customer_id'] = $this->customer->isLogged();
             }
         }
 
+        $urls =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+
+        $escaped_url = htmlspecialchars( $urls, ENT_QUOTES, 'UTF-8' );
+
+        $uds = explode('route=',$escaped_url);
+        $data['urls_active'] = explode('/',$uds[1]);
+
+
+
 		$data['text_shopping_cart'] = $this->language->get('text_shopping_cart');
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
 
@@ -99,7 +120,8 @@ $data['customer_id'] = $this->customer->isLogged();
 		$data['shopping_cart'] = $this->url->link('checkout/cart');
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['blogs'] = $this->url->link('information/news', '', true);
-		$data['prom'] = $this->url->link('information/promotion', '', true);
+
+
 
 
 		$data['contact'] = $this->url->link('information/contact');
@@ -164,11 +186,26 @@ $data['customer_id'] = $this->customer->isLogged();
 
 
         }
+        $this->load->model('design/banner');
+        $baners = $this->model_design_banner->getBanner(10);
+
+$data['baners']=array();
+
+         foreach($baners as $baner){
+             $data['baners'][]=array(
+                 'title'=>$baner['title'],
+                 'link'=>$baner['link']
+             );
+
+         }
+
 
 
          $data['estore'] = $this->url->link('product/category', 'path=59');
          $data['cat_pr'] = $this->url->link('product/catprod', 'cat_prod_id=70');
+
         $data['wholesale'] = $this->url->link('information/wholesale', '', true);
+        $data['prom'] = $this->url->link('information/promotion', '', true);
 
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');

@@ -139,6 +139,60 @@
                 <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_keyword; ?>" id="input-keyword" class="form-control" />
+<input type="button" class="btn btn-primary" id="SEO_URL_GENERATOR" value="SEO URL GENERATOR" style="margin-top: 5px;" />
+                  <script type="text/javascript">
+                        function getSeoUrlGenerator(seo_url_generator,autogenerator){
+                            $.ajax({
+                                    url: 'index.php?route=module/seourlgenerator/seourlgenerateajax&token=<?php echo $token; ?>',
+                                    type: 'post',
+                                    dataType: 'html',
+                                    data: 'autogenerator='+autogenerator+'&id=<?php if(isset($_GET['category_id'])){ echo $_GET['category_id']; }else{ echo "0"; } ?>&query_part=category_id&name='+seo_url_generator,
+                                    beforeSend: function() {
+                                    },
+                                    complete: function() {
+                                    },
+                                    success: function(response) {
+                                        if(response!=''){
+                                            $("#input-keyword").val(response);
+                                        }
+                                    }
+                            });
+                        }
+                        $(document).ready(function() {
+                            var lastSeoUrl = $("#input-keyword").val();
+                            var configLanguageId = getConfigLanguageId();
+                            if(lastSeoUrl==''){
+                                $( "input[name='category_description["+configLanguageId+"][name]']" ).change(function() {
+                                    getSeoUrlGenerator(this.value,0);
+                                });
+                            }
+                        });
+                        
+                        function getConfigLanguageId(){
+                            
+                            response = $.ajax({
+                                    url: 'index.php?route=module/seourlgenerator/getConfigLanguageId&token=<?php echo $token; ?>',
+                                    type: 'post',
+                                    dataType: 'html',
+                                    data: '',
+                                    async: false
+                            }).responseText;
+                            
+                            return response;
+                            
+                        }
+                        
+                        $( "#SEO_URL_GENERATOR" ).click(function() {
+                            var configLanguageId = getConfigLanguageId();
+                            var nameContent = $( "input[name='category_description["+configLanguageId+"][name]']" ).val();
+                            if(nameContent==''){
+                                alert('Сначала создайте название. Невозможно сгенерировать SEO URL без названия');
+                                return;
+                            }else{
+                                getSeoUrlGenerator(nameContent,1);
+                            }
+                        });
+                  </script>
                   <?php if ($error_keyword) { ?>
                   <div class="text-danger"><?php echo $error_keyword; ?></div>
                   <?php } ?>

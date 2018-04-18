@@ -1212,6 +1212,28 @@ class ControllerCatalogProduct extends Controller {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
+
+        // Image_fish
+        if (isset($this->request->post['image_fish'])) {
+            $data['image_fish'] = $this->request->post['image_fish'];
+        } elseif (!empty($product_info)) {
+            $data['image_fish'] = $product_info['image_fish'];
+        } else {
+            $data['image_fish'] = '';
+        }
+
+        $this->load->model('tool/image');
+
+        if (isset($this->request->post['image_fish']) && is_file(DIR_IMAGE . $this->request->post['image_fish'])) {
+            $data['thumb_fish'] = $this->model_tool_image->resize($this->request->post['image_fish'], 100, 100);
+        } elseif (!empty($product_info) && is_file(DIR_IMAGE . $product_info['image_fish'])) {
+            $data['thumb_fish'] = $this->model_tool_image->resize($product_info['image_fish'], 100, 100);
+        } else {
+            $data['thumb_fish'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+
+
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		// Images
@@ -1255,12 +1277,12 @@ class ControllerCatalogProduct extends Controller {
 		$data['product_downloads'] = array();
 
 		foreach ($product_downloads as $download_id) {
-			$download_info = $this->model_catalog_download->getDownload($download_id);
+			$download_info = $this->model_catalog_download->getBlog($download_id);
 
 			if ($download_info) {
 				$data['product_downloads'][] = array(
-					'download_id' => $download_info['download_id'],
-					'name'        => $download_info['name']
+					'download_id' => $download_info['news_id'],
+					'name'        => $download_info['title']
 				);
 			}
 		}

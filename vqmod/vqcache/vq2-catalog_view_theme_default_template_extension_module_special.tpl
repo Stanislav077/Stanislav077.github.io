@@ -55,7 +55,7 @@
 
               <?php if ($option['type'] == 'checkbox' && $option['val']==$product['product_id']) { ?>
 
-              <div class="main-sale__slider--item--size main-sale__slider--item--size-color">
+              <div class="main-sale__slider--item--size">
                 <div class="card-item__colors">
 
                   <div class="card-item__colors--text"> <?php echo $option['name']; ?></div>
@@ -82,7 +82,7 @@
 
               <?php if ($option['type'] == 'radio'&& $option['val']==$product['product_id']) { ?>
 
-              <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size">
+              <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size <?php echo $option['name']; ?>">
                 <div class="main-sale__slider--item--size--cap">
                   <?php echo $option['name']; ?>
                 </div>

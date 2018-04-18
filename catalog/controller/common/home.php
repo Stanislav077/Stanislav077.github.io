@@ -47,7 +47,7 @@ class ControllerCommonHome extends Controller {
                 $data['categories'][] = array(
                     'name'     => $category['name'],
                     'key'     => $key,
-                    'image'     => ($key == 0 || $key == 5 ?  $this->model_tool_image->resize($category['image'],700,352)  : $this->model_tool_image->resize($category['image'],335,352)),
+                    'image'     => ($key == 0 || $key == 5 ?  $this->model_tool_image->resize($category['image'],745,352)  : $this->model_tool_image->resize($category['image'],373,352)),
                     'children' => $children_data,
                     'column'   => $category['column'] ? $category['column'] : 1,
                     'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])

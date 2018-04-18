@@ -20,6 +20,11 @@ class ControllerInformationInformation extends Controller {
 
 		$information_info = $this->model_catalog_information->getInformation($information_id);
 
+
+
+$data['information_ids'] =$information_id;
+
+
 		if ($information_info) {
 			$this->document->setTitle($information_info['meta_title']);
 			$this->document->setDescription($information_info['meta_description']);
@@ -44,6 +49,44 @@ class ControllerInformationInformation extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+
+
+            if($information_id == 4){
+
+
+                $this->load->model('catalog/abouthome');
+
+$whot = $this->model_catalog_abouthome->getabouthomess();
+$data['whot'] = $whot;
+$data['whots'] = array();
+
+
+foreach($whot as $whots){
+
+    $data['whots'][] = array(
+        'title' =>$whots['title'],
+        'description' => html_entity_decode($whots['description'], ENT_QUOTES, 'UTF-8')
+    );
+}
+
+                $information_infos = $this->model_catalog_abouthome->getInformation(1);
+
+
+                $data['abouts'] = $information_infos;
+
+                $data['block_first'] = html_entity_decode($information_infos['block_first'], ENT_QUOTES, 'UTF-8');
+                $data['block_too'] = html_entity_decode($information_infos['block_too'], ENT_QUOTES, 'UTF-8');
+
+
+
+
+
+            }
+
+
+
+
 
 			$this->response->setOutput($this->load->view('information/information', $data));
 		} else {
@@ -73,6 +116,8 @@ class ControllerInformationInformation extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
+
+
 	}
 
 	public function agree() {
@@ -94,4 +139,99 @@ class ControllerInformationInformation extends Controller {
 
 		$this->response->setOutput($output);
 	}
+
+
+
+    public function reviewabout() {
+        $this->load->language('product/product');
+
+        $this->load->model('catalog/reviewabout');
+
+        $data['text_no_reviewabouts'] = $this->language->get('text_no_reviewabouts');
+
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        } else {
+            $page = 1;
+        }
+
+
+$limit = 5;
+        $data['ttt'] = $page;
+        $data['reviewabouts'] = array();
+
+        $reviewabout_total = $this->model_catalog_reviewabout->getTotalreviewaboutsByProductId();
+
+        $results = $this->model_catalog_reviewabout->getreviewaboutsByProductId( ($page - 1) * $limit, $limit);
+
+        foreach ($results as $result) {
+            $data['reviewabouts'][] = array(
+                'author'     => $result['author'],
+                'text'       => nl2br($result['text']),
+                'rating'     => (int)$result['rating'],
+                'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added']))
+            );
+        }
+
+        $pagination = new Pagination();
+        $pagination->total = $reviewabout_total;
+        $pagination->page = $page;
+        $pagination->limit = $limit;
+        //$pagination->url = $this->url->link('information/information/reviewabout&page={page}');
+        $pagination->url = $this->url->link('information/information/reviewabout', 'information_id=' . $this->request->get['information_id'] . '&page={page}');
+
+
+        $data['pagination'] = $pagination->render();
+
+        $data['results'] = sprintf($this->language->get('text_pagination'), ($reviewabout_total) ? (($page - 1) * 5) + 1 : 0, ((($page - 1) * 5) > ($reviewabout_total - 5)) ? $reviewabout_total : ((($page - 1) * 5) + 5), $reviewabout_total, ceil($reviewabout_total / 5));
+
+        $this->response->setOutput($this->load->view('information/reviewabout', $data));
+    }
+
+    public function write() {
+        $this->load->language('product/product');
+
+        $json = array();
+
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+            if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 25)) {
+                $json['error'] = $this->language->get('error_name');
+            }
+
+            if ((utf8_strlen($this->request->post['text']) < 25) || (utf8_strlen($this->request->post['text']) > 1000)) {
+                $json['error'] = $this->language->get('error_text');
+            }
+
+            if (empty($this->request->post['rating']) || $this->request->post['rating'] < 0 || $this->request->post['rating'] > 5) {
+                $json['error'] = $this->language->get('error_rating');
+            }
+
+            // Captcha
+            if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('reviewabout', (array)$this->config->get('config_captcha_page'))) {
+                $captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+
+                if ($captcha) {
+                    $json['error'] = $captcha;
+                }
+            }
+
+            if (!isset($json['error'])) {
+                $this->load->model('catalog/reviewabout');
+
+
+                //$json['success'] = '11';
+
+                $this->model_catalog_reviewabout->addreviewabout($this->request->post);
+
+                $json['success'] = $this->language->get('text_success');
+            }
+        }
+
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
+    }
+
+
+
+
 }

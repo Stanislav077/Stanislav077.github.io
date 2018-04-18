@@ -10,8 +10,6 @@
     </div>
   </div>
 
-
-
 <div class="estore__content">
   <div class="container">
     <div class="go-back"><a href="#"><img src="style/img/icon/arrow-right-nav.png" alt="">Saltwater Fish</a></div>
@@ -175,7 +173,7 @@
 
                   <?php if ($option['type'] == 'radio'&& $option['val']==$product['product_id']) { ?>
 
-                  <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size">
+                  <div id="option-<?php echo $option['product_option_id']; ?>" class="main-sale__slider--item--size <?=$option['name']?>">
                     <div class="main-sale__slider--item--size--cap">
                       <?php echo $option['name']; ?>
                     </div>
