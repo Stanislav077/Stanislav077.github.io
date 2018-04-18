@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>CSV Price Pro import/export 4 - Admin Menu</name>
+  <code>admin_menu_csvprice_pro4</code>
+  <version>4.1.0</version>
+  <author>costaslabs.com</author>
+  <link>http://www.costaslabs.com</link>
+
+  <file path="admin/controller/common/menu.php">
+    <operation>
+      <search><![CDATA[$this->load->language('common/menu');]]></search>
+      <add position="after"><![CDATA[
+        if(isset($this->session->data['token']) && $this->user->isLogged()){
+			$this->language->load('module/csvprice_pro');
+
+			$data['text_csvprice_pro'] = 'CSV Price Pro 4';
+
+			$data['csvprice_pro_products'] = array(
+			 'text' => $this->language->get('text_products'),
+			 'url' =>  $this->url->link('csvprice_pro/app_product', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			$data['csvprice_pro_categories'] = array(
+			 'text' => $this->language->get('text_categories'),
+			 'url' =>  $this->url->link('csvprice_pro/app_category', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			$data['csvprice_pro_manufacturers'] = array(
+			 'text' => $this->language->get('text_manufacturers'),
+			 'url' =>  $this->url->link('csvprice_pro/app_manufacturer', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			$data['csvprice_pro_crontab'] = array(
+			 'text' => $this->language->get('text_crontab'),
+			 'url' =>  $this->url->link('csvprice_pro/app_crontab', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			
+			$data['csvprice_pro_customers'] = array(
+			 'text' => $this->language->get('text_customers'),
+			 'url' =>  $this->url->link('csvprice_pro/app_customer', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			$data['csvprice_pro_orders'] = array(
+			 'text' => $this->language->get('text_orders'),
+			 'url' =>  $this->url->link('csvprice_pro/app_order', 'token=' . $this->session->data['token'], 'SSL')
+			);
+			
+			$data['csvprice_pro_about'] = array(
+			 'text' => $this->language->get('text_about'),
+			 'url' =>  $this->url->link('csvprice_pro/app_about', 'token=' . $this->session->data['token'], 'SSL')
+			);
+		}
+      ]]></add>
+    </operation>
+  </file>
+  <file path="admin/view/template/common/menu.tpl">
+    <operation>
+      <search><![CDATA[<li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>]]></search>
+      <add position="after"><![CDATA[
+		<?php if(isset($text_csvprice_pro)) { ?>
+			<li><a class="parent"><?php echo $text_csvprice_pro; ?></a>
+				<ul>
+				<li id="app_product"><a href="<?php echo $csvprice_pro_products['url'];?>"><?php echo $csvprice_pro_products['text'];?></a></li>
+				<li id="app_category"><a href="<?php echo $csvprice_pro_categories['url'];?>"><?php echo $csvprice_pro_categories['text'];?></a></li>
+				<li id="app_manufacturer"><a href="<?php echo $csvprice_pro_manufacturers['url'];?>"><?php echo $csvprice_pro_manufacturers['text'];?></a></li>
+				<li id="app_crontab"><a href="<?php echo $csvprice_pro_crontab['url'];?>"><?php echo $csvprice_pro_crontab['text'];?></a></li>
+				<li id="app_customer"><a href="<?php echo $csvprice_pro_customers['url'];?>"><?php echo $csvprice_pro_customers['text'];?></a></li>
+				<li id="app_order"><a href="<?php echo $csvprice_pro_orders['url'];?>"><?php echo $csvprice_pro_orders['text'];?></a></li>
+				<li id="app_about"><a href="<?php echo $csvprice_pro_about['url'];?>"><?php echo $csvprice_pro_about['text'];?></a></li>
+				</ul>
+			</li>
+		<?php } ?>
+	  ]]></add>
+    </operation>
+  </file>
+
+</modification>

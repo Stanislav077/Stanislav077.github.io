@@ -1,0 +1,13 @@
+---------- Date: 2018-04-17 15:11:22 ~ IP : 91.234.40.79 ----------
+REQUEST URI : /admin/index.php?route=extension/modification/refresh&token=qvj4ADZzNCxEtfkQVue6UkQClDOi5knP
+MOD DETAILS:
+   modFile   : /home/masgr2/aqua2.com/www/vqmod/xml/install.xml
+   id        : 
+   version   : 2.x-3.19
+   vqmver    : 
+   author    : mhccorp.com
+VQModObject::parseMods - Could not resolve path for [admin/controller/common/menu.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/view/template/common/menu.tpl] (SKIPPED)
+----------------------------------------------------------------------
+
+
